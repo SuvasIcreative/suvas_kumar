@@ -1,0 +1,28 @@
+<?xml version= "1.0" encoding= "UTF-8"?>
+<odoo>
+<!--    <record id="view_partner_form_modify" model="ir.ui.view">-->
+<!--        <field name="name">res.partner.form</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="base.view_partner_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//group/group/field[@name='email']" position="before">-->
+<!--                <field name="dob"/>-->
+<!--            </xpath>-->
+<!--&lt;!&ndash;            <field name='email' position="after">&ndash;&gt;-->
+<!--&lt;!&ndash;                <field name="dob"/>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </field>&ndash;&gt;-->
+<!--        </field>-->
+<!--    </record>-->
+    <record id="view_partner_form_modify" model="ir.ui.view">
+        <field name="name">res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <field name='vat' position="after">
+                <field name="customer_r"/>
+                <field name="dob"/>
+            </field>
+        </field>
+    </record>
+</odoo>

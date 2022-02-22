@@ -1,0 +1,63 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <record model="ir.ui.view" id="rambo.list">
+      <field name="name">rambo list</field>
+      <field name="model">rambo.rambo</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="rambo.action_window">
+      <field name="name">rambo window</field>
+      <field name="res_model">rambo.rambo</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <record model="ir.actions.act_window" id="rambo.action_window_1">
+      <field name="name">rambo window_1</field>
+      <field name="res_model">rambo.rambo</field>
+      <field name="view_mode">tree,form,graph</field>
+    </record>
+
+    <!-- server action to the one above -->
+    <record model="ir.actions.server" id="rambo.action_server">
+      <field name="name">rambo server</field>
+      <field name="model_id" ref="model_rambo_rambo"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+          "name":"rambo server"
+        }
+      </field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem name="rambo" id="rambo.menu_root"/>
+    <!-- menu categories -->
+    <menuitem name="Menu 1" id="rambo.menu_1" parent="rambo.menu_root"/>
+    <menuitem name="Repot" id="rambo.menu_3" parent="rambo.menu_root"/>
+    <menuitem name="Menu 2" id="rambo.menu_2" parent="rambo.menu_root"/>
+    <menuitem name="About" id="rambo.menu_4" parent="rambo.menu_root"/>
+    <menuitem name="Area" id="rambo.menu_5" parent="rambo.menu_root"/>
+    <!-- actions -->
+    <menuitem name="List" id="rambo.menu_1_list" parent="rambo.menu_1"
+              action="rambo.action_window"/>
+    <menuitem name="Server to list" id="rambo" parent="rambo.menu_2"
+              action="rambo.action_server"/>
+    <menuitem name="Report" id="rambo.menu_1_list" parent="rambo.menu_1"
+              action="rambo.action_window"/>
+    <menuitem name="about" id="rambo.menu_4_list" parent="rambo.menu_4"
+              action="rambo.action_window_1"/>
+    <menuitem name="manu" id="rambo.menu_5_list" parent="rambo.menu_4"
+              action="rambo.action_window_1"/>
+  </data>
+</odoo>

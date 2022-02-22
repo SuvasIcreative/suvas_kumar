@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_college_management,college.management,model_college_management,,1,1,1,
+access_department_management,department.management,model_department_management,,1,1,1,1
+access_student_management,student.management,model_student_management,,1,1,1,1
+access_student_management_wizard,student.management.wizard,model_student_management_wizard,,1,1,1,1
+access_college_management_wizard,college.management.wizard,model_college_management_wizard,,1,1,1,1
