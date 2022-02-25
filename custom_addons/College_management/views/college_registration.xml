@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <!--    tree view-->
-    <record id="college_tree" model="ir.ui.view">
-        <field name="name">college.management.tree</field>
-        <field name="model">college.management</field>
+    <record id="college_registration_tree" model="ir.ui.view">
+        <field name="name">college_registration_tree</field>
+        <field name="model">college.registration</field>
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
@@ -32,15 +32,25 @@
     <!--    </record>-->
 
     <!--form views-->
-    <record id="college_form" model="ir.ui.view">
-        <field name="name">college.management.form</field>
-        <field name="model">college.management</field>
+    <record id="college_registration_form" model="ir.ui.view">
+        <field name="name">college_registration_form</field>
+        <field name="model">college.registration</field>
         <field name="arch" type="xml">
             <form>
                 <!--                <header>-->
                 <!--                    <button name="name" string="Send" type="object"/>-->
                 <!--                </header>-->
                 <sheet>
+<!--                     <div class="oe_button_box" name="button_box">-->
+<!--                      <button name="action_open_available_student" type="object"-->
+<!--                            class="oe_stat_button" icon="fa-star">-->
+<!--                            <div class="o_stat_info">-->
+<!--                                <field name="leads_count" class="o_stat_value"/>-->
+<!--                                <span class="o_stat_text"> Leads</span>-->
+<!--                            </div>-->
+<!--                        </button>-->
+
+<!--                     </div>-->
                     <group>
                         <group>
                             <field name="name" widget="url"/>
@@ -63,16 +73,10 @@
 
     <!--    action views-->
 
-    <record id="college_action_window" model="ir.actions.act_window">
-        <field name="name">college</field>
-        <field name="res_model">college.management</field>
+    <record id="college_registration_action_window" model="ir.actions.act_window">
+        <field name="name">college_registration</field>
+        <field name="res_model">college.registration</field>
         <field name="view_mode">tree,form,kanban</field>
-
-    </record>
-    <record id="college_action_window1" model="ir.actions.act_window">
-        <field name="name">college</field>
-        <field name="res_model">college.management</field>
-        <field name="view_mode">tree,form</field>
 
     </record>
 
@@ -82,10 +86,5 @@
     <!--    manus-->
 
     <menuitem id="college_menu" name="College" parent="college_root" action="college_action_window" sequence="10"/>
-    <menuitem id="college_sub_root" name="Menu 2" parent='college_menu' action="college_action_window"/>
-    <menuitem id="college_sub" name="Menu 3" parent='college_sub_root' action="college_action_window"/>
-    <menuitem id="college_sub1" name="Student Form" parent="college_sub_root" action="action_college_wizard" />
-    <menuitem id="student_menu" name="Student" parent="college_root" action="student_action_window" sequence="10"/>
-    <menuitem id="college_sub_manu" name="Register College" parent='college_menu' action="college_registration_action_window"/>
-    <menuitem id="department_menu" name="Department" parent="college_root" action="department_action_window" sequence="10"/>
+
 </odoo>

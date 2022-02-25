@@ -3,3 +3,4 @@
 from . import models
 from . import sale
 from . import contact
+from . import smart_models

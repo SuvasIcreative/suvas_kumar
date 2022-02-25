@@ -24,11 +24,11 @@
 
                 </group>
 
-<!--                <footer>-->
-<!--                    <button name="college" string="Save" type="object" class="btn-primary"-->
-<!--                            data-hotkey="q"/>-->
-<!--                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>-->
-<!--                </footer>-->
+                <footer>
+                    <button name="college" string="Save" type="object" class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
             </form>
         </field>
     </record>

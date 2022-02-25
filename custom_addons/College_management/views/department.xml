@@ -50,7 +50,7 @@
     <!--    action views-->
 
     <record id="department_action_window" model="ir.actions.act_window">
-        <field name="name">department</field>
+        <field name="name">department1</field>
         <field name="res_model">department.management</field>
         <field name="view_mode">tree,form,kanban</field>
 

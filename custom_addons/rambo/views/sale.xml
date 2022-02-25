@@ -6,13 +6,15 @@
         <field name="inherit_id" ref="sale.view_order_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group/group/field[@name='partner_id']" position="after">
+<!--            <xpath expr="//group/group/field[@name='partner_id']" position="before">-->
+<!--            <xpath expr="//group/group/field[@name='partner_id']" position="replace">-->
                 <field name="customer_reference"/>
                 <field name="date_of_birth"/>
             </xpath>
         </field>
     </record>
     <record id="view_order_tree_modify" model="ir.ui.view">
-        <field name="name">view_order_form_modify</field>
+        <field name="name">view_order_tree_modify</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
         <field name="arch" type="xml">

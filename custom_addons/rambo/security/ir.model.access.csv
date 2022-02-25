@@ -1,2 +1,3 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_rambo_rambo,access.rambo.rambo,model_rambo_rambo,,1,1,1,1
+access_rambo_rambo,rambo.rambo,model_rambo_rambo,base.group_user,1,1,1,1
+access_smart_model,smart.model,model_smart_model,base.group_user,1,1,1,1

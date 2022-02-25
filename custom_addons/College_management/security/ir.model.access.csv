@@ -4,3 +4,4 @@ access_department_management,department.management,model_department_management,,
 access_student_management,student.management,model_student_management,,1,1,1,1
 access_student_management_wizard,student.management.wizard,model_student_management_wizard,,1,1,1,1
 access_college_management_wizard,college.management.wizard,model_college_management_wizard,,1,1,1,1
+access_college_registration,college.registration,model_college_registration,,1,1,1,

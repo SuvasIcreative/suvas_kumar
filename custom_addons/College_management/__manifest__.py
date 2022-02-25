@@ -26,7 +26,9 @@
         'security/ir.model.access.csv',
         'views/college.xml',
         'views/department.xml',
-        'views/student.xml'
+        'views/student.xml',
+        'views/college_registration.xml',
+
 
     ],
     'application': True,

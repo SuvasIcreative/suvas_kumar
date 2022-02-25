@@ -1,19 +1,6 @@
 <?xml version= "1.0" encoding= "UTF-8"?>
 <odoo>
-<!--    <record id="view_partner_form_modify" model="ir.ui.view">-->
-<!--        <field name="name">res.partner.form</field>-->
-<!--        <field name="model">res.partner</field>-->
-<!--        <field name="inherit_id" ref="base.view_partner_form"/>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <xpath expr="//group/group/field[@name='email']" position="before">-->
-<!--                <field name="dob"/>-->
-<!--            </xpath>-->
-<!--&lt;!&ndash;            <field name='email' position="after">&ndash;&gt;-->
-<!--&lt;!&ndash;                <field name="dob"/>&ndash;&gt;-->
-
-<!--&lt;!&ndash;            </field>&ndash;&gt;-->
-<!--        </field>-->
-<!--    </record>-->
+    <data>
     <record id="view_partner_form_modify" model="ir.ui.view">
         <field name="name">res.partner.form</field>
         <field name="model">res.partner</field>
@@ -25,4 +12,33 @@
             </field>
         </field>
     </record>
+    <!--    <record id="view_partner_form_modify" model="ir.ui.view">-->
+    <!--        <field name="name">res.partner.form</field>-->
+    <!--        <field name="model">res.partner</field>-->
+    <!--        <field name="inherit_id" ref="base.view_partner_form"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--&lt;!&ndash;            <field name='vat' position="replace">&ndash;&gt;-->
+    <!--            <field name='vat' position="attributes">-->
+    <!--                <field name="customer_r"/>-->
+
+    <!--&lt;!&ndash;                <field name="dob"/>&ndash;&gt;-->
+    <!--            </field>-->
+    <!--        </field>-->
+    <!--    </record>-->
+<!--    <record id="view_partner_form_modify" model="ir.ui.view">-->
+<!--        <field name="name">res.partner.form</field>-->
+<!--        <field name="model">res.partner</field>-->
+<!--        <field name="inherit_id" ref="base.view_partner_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            &lt;!&ndash;            <field name='vat' position="replace">&ndash;&gt;-->
+<!--            <field name='email' position="attributes">-->
+<!--                &lt;!&ndash;                <attribute name="invisible">True</attribute>&ndash;&gt;-->
+<!--                <attribute name="readonly">True</attribute>-->
+<!--                &lt;!&ndash;                <attribute name="otined">True</attribute>&ndash;&gt;-->
+
+
+<!--            </field>-->
+<!--        </field>-->
+<!--    </record>-->
+    </data>
 </odoo>

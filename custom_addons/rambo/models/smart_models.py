@@ -7,14 +7,16 @@ from datetime import datetime
 
 
 class rambo(models.Model):
-    _name = 'rambo.rambo'
-    _description = 'rambo.rambo'
+    _name = 'smart.model'
+    _inherit = ['mail.thread', 'mail.activity.mixin']
+
+    _description = 'smart.model'
 
     name = fields.Char()
     value = fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
     description = fields.Text()
-    dob = fields.Date(string="DOB")
+    dob = fields.Date(string="DOB", tracking=True)
     bool = fields.Boolean()
     active = fields.Boolean(string="Active", default=True)
     notes = fields.Html(string='Terms and Conditions')
@@ -25,11 +27,11 @@ class rambo(models.Model):
                                         ('account.move', 'Invoicing'),('product.template', 'Inventory Product')])
     user = fields.Many2one('res.users')
     user1 = fields.Many2one(comodel_name='res.users', delegate=False)
-    mod_ids = fields.One2many('res.partner', 'res_id', string='Costumer')
-    mod_ids1 = fields.Many2many(comodel_name='res.partner',
-                               relation='table_name',
-                               column1='col_name',
-                               column2='other_col_name')
+    # mod_ids = fields.One2many('res.partner', 'res_id', string='Costumer')
+    # mod_ids1 = fields.Many2many(comodel_name='res.partner',
+    #                            relation='table_name',
+    #                            column1='col_name',
+    #                            column2='other_col_name')
 
     _sql_constraints = [
         ('name_dob_uniq', 'unique (name,dob)', 'The name/date of birth must be unique per person !')
@@ -37,19 +39,18 @@ class rambo(models.Model):
 
     @api.constrains('name')
     def _constrains_reconcile(self):
-        for rambo.rambo in self:
-            if self.name in ('sam','radhe','make'):
-                raise UserError('This name is blocked all ready')
+        if self.name in ('sam','radhe','make'):
+            raise UserError('This name is blocked all ready')
 
 
 
-class Demo(models.Model):
-    _inherit = 'res.partner'
-    res_id = fields.Many2one('rambo.rambo')
+# class Demo(models.Model):
+#     _inherit = 'res.partner'
+#     res_id = fields.Many2one('rambo.rambo')
 
 
 
-    @api.depends('value')
-    def _value_pc(self):
-        for record in self:
-            record.value2 = float(record.value) / 100
+    # @api.depends('value')
+    # def _value_pc(self):
+    #     for record in self:
+    #         record.value2 = float(record.value) / 100

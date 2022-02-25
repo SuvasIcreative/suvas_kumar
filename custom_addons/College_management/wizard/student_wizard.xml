@@ -21,7 +21,7 @@
     <record id="action_procurement_compute" model="ir.actions.act_window">
         <field name="name">student management wizard</field>
         <field name="res_model">student.management.wizard</field>
-        <field name="view_id" ref="view_procurement_compute_wizard"/>
+<!--        <field name="view_id" ref="view_procurement_compute_wizard"/>-->
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>

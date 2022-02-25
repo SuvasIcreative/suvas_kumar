@@ -15,9 +15,10 @@ class CollegeManagementWizard(models.TransientModel):
     email = fields.Char()
     course = fields.Char(string='Course')
 
-    procure_calculation = fields.Char()
-    cancel = fields.Char()
 
+    cancel = fields.Char()
+    def college(self):
+        print("Hello i am hear")
 # address = fields.Text(string="Address")
     # code = fields.Integer()
     # email = fields.Char()

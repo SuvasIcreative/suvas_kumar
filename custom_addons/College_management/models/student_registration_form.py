@@ -3,22 +3,23 @@
 from odoo import models, fields, api, _
 
 
-class StudentManagement(models.Model):
-    _name = 'student.management'
-    _inherit = ['mail.thread', 'mail.activity.mixin']
-    _description = 'student.management'
+class StudentRegistrationForm(models.Model):
+    _name = 'student.registration.form'
+    # _inherit = ['mail.thread', 'mail.activity.mixin']
+    _description = 'student.registration.form'
 
-    name = fields.Char(string='Sr. Number', required=True, copy=False,
-                       readonly=True, default=lambda self: _('New'))
-    first_name = fields.Char(string="First Name", tracking=True)
-    last_name = fields.Char(string="Last Name", tracking=True)
-    enrollment_number = fields.Integer(string='Enrollment Number', tracking=True)
+    # name = fields.Char(string='Sr. Number', required=True, copy=False,
+    #                    readonly=True, default=lambda self: _('New'))
+    student_id=fields.Integer(string='Sudent ID')
+    first_name = fields.Char(string="First Name")
+    last_name = fields.Char(string="Last Name")
+    # enrollment_number = fields.Integer(string='Enrollment Number', tracking=True)
     address = fields.Text(string="Address")
     mobile_no = fields.Integer()
     date_of_birth = fields.Date(string="Date_Of_Birth")
-    email = fields.Char(tracking=True)
-    college = fields.Many2one('college.registration', string='College')
-    student_count = fields.Integer(string='Student Count')
+    email = fields.Char()
+    college = fields.Many2one('college.registration')
+    # student_count = fields.Integer(string='Student Count',compute='_compute_student_count')
     # college = fields.Selection([('college1', 'VISHWAKARMA GOVERNMENT ENGINEERING COLLEGE'),
     #                             ('college2', 'BIRLA VISHVAKARMA MAHAVIDHYALAYA'),
     #                             ('college3', 'RAKSHA SHAKTI UNIVERSITY'),
@@ -42,38 +43,4 @@ class StudentManagement(models.Model):
                                ('course6', 'AUTOMOBILE ENGINEERING '), ('course7', 'MECHANICAL ENGINEERING'),
                                ('course8', 'INFORMATION TECHNOLOGY ')], string='Course', tracking=True)
 
-    state = fields.Selection([
-        ('draft', 'Draft'), ('confirm', 'Confirm'), ('complete', 'Complete'), ('cancel', 'Cancel')], string='status',
-        default="draft", tracking=True)
 
-
-    # def _compute_student_count(self):
-    #     student_count = self.env['student.management'].search_count(['college', '=', self.college])
-    #     self.student_count = student_count
-    # @ api.depends('value')
-    # def _value_pc(self):
-    #     for record in self:
-    #         record.value2 = float(record.value) / 100
-
-    # def send(self):
-    #     print("Funtion Work")
-    def action_confirm(self):
-        self.write({'state': 'confirm'})
-
-    def action_draft(self):
-        self.write({'state': 'draft'})
-
-    def action_complete(self):
-        self.write({'state': 'complete'})
-
-    def action_cancel(self):
-        self.write({'state': 'cancel'})
-
-    @api.model
-    def create(self, values):
-        if not values.get('address'):
-            values['address'] = 'Address.......'
-        if values.get('name', _('New')) == _('New'):
-            values['name'] = self.env['ir.sequence'].next_by_code('student.management') or _('New')
-        res = super(StudentManagement, self).create(values)
-        return res
