@@ -10,6 +10,8 @@
                 <field name="email"/>
                 <field name="address"/>
                 <field name="code"/>
+                <field name="student_count"/>
+
 
             </tree>
         </field>
@@ -41,20 +43,22 @@
                 <!--                    <button name="name" string="Send" type="object"/>-->
                 <!--                </header>-->
                 <sheet>
-<!--                     <div class="oe_button_box" name="button_box">-->
-<!--                      <button name="action_open_available_student" type="object"-->
-<!--                            class="oe_stat_button" icon="fa-star">-->
-<!--                            <div class="o_stat_info">-->
-<!--                                <field name="leads_count" class="o_stat_value"/>-->
-<!--                                <span class="o_stat_text"> Leads</span>-->
-<!--                            </div>-->
-<!--                        </button>-->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_available_student" type="object"
+                                class="oe_stat_button" icon="fa-user">
+                            <div class="o_stat_info">
+                                <field name="student_count" class="o_stat_value"/>
+                                <span class="o_stat_text">Students</span>
+                            </div>
+                        </button>
 
-<!--                     </div>-->
+                    </div>
                     <group>
                         <group>
                             <field name="name" widget="url"/>
                             <field name="address"/>
+                            <field name="student_count"/>
+
                             <field name="rating" widget="priority"/>
 
                         </group>

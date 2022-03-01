@@ -18,7 +18,6 @@ class StudentManagement(models.Model):
     date_of_birth = fields.Date(string="Date_Of_Birth")
     email = fields.Char(tracking=True)
     college = fields.Many2one('college.registration', string='College')
-    student_count = fields.Integer(string='Student Count')
     # college = fields.Selection([('college1', 'VISHWAKARMA GOVERNMENT ENGINEERING COLLEGE'),
     #                             ('college2', 'BIRLA VISHVAKARMA MAHAVIDHYALAYA'),
     #                             ('college3', 'RAKSHA SHAKTI UNIVERSITY'),
@@ -47,9 +46,7 @@ class StudentManagement(models.Model):
         default="draft", tracking=True)
 
 
-    # def _compute_student_count(self):
-    #     student_count = self.env['student.management'].search_count(['college', '=', self.college])
-    #     self.student_count = student_count
+
     # @ api.depends('value')
     # def _value_pc(self):
     #     for record in self:

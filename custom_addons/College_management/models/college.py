@@ -15,5 +15,6 @@ class CollegeManagement(models.Model):
     rating=fields.Selection([('1','1'),('2','2'),('4','4'),('3','3')])
 
 
+
     # def send(self):
     #     print("funtion works")

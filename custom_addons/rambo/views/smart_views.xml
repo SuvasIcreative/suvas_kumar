@@ -6,33 +6,46 @@
             <field name="model">smart.model</field>
             <field name="arch" type="xml">
                 <form>
+                    <header>
+                        <button id='button_confirm' string="Confirm" name="action_confirm"
+                                class="btn-primary" type="object"/>
+                        <button id='button_search' string="Search" name="action_search"
+                                class="btn-primary" type="object"/>
+                    </header>
                     <sheet>
-                         <div class="oe_button_box" name="button_box">
-                      <button name="%(contacts.action_contacts)d" type="action"
-                            class="oe_stat_button" icon="fa-star">
-                            <div class="o_stat_info">
-<!--                                <field name="leads_count" class="o_stat_value"/>-->
-                                <span class="o_stat_text"> Leads</span>
-                            </div>
-                        </button>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="%(contacts.action_contacts)d" type="action"
+                                    class="oe_stat_button" icon="fa-star">
+                                <div class="o_stat_info">
+                                    <!--                                <field name="leads_count" class="o_stat_value"/>-->
+                                    <span class="o_stat_text">Leads</span>
+                                </div>
+                            </button>
 
-                     </div>
+                        </div>
                         <group>
                             <group>
                                 <field name="name"/>
+                                <field name="age"/>
                                 <field name="dob"/>
                                 <field name="gender"/>
                                 <field name="user"/>
                                 <field name="value2"/>
                                 <field name="user1"/>
+                                <field name="create_uid" string="create_id"/>
+                                <field name="create_date" string="create_date"/>
+                                <field name="write_uid" string="write_uid"/>
 
                             </group>
                             <group>
                                 <field name="description"/>
+                                <field name="mobile_number"/>
                                 <field name="create_date"/>
                                 <field name="refer"/>
                                 <field name="bool"/>
                                 <field name="bool"/>
+                                <field name="email"/>
+                                <field name="write_date" string="write_date"/>
 
                             </group>
 
@@ -57,12 +70,12 @@
                             </page>
                         </notebook>
                     </sheet>
-                     <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
 
-                </div>
+                    </div>
                 </form>
             </field>
         </record>

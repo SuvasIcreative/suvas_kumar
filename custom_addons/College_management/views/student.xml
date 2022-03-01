@@ -88,7 +88,7 @@
                 <field name="course"/>
                 <field name="mobile_no" widget="phone"/>
                 <field name="reference" widget="many2one_avatar" options="{'color_field':'color'}"/>
-<!--                <field name="college"/>-->
+                <field name="college"/>
                 <field name="state" decoration-success="state == 'draft' or state == 'confirm'"
                        decoration-info="state == 'complete' or state == 'cancel'"
                        widget="badge" optional="show"/>
@@ -141,7 +141,7 @@
                             <field name="reference" options="{'no_open':'True'}"/>
                             <!--                            <field name="reference" options="{'no_create_edit':'True'}" />-->
                             <!--                            <field name="reference" widget="selection" />-->
-<!--                            <field name="college"/>-->
+                            <field name="college"/>
                         </group>
                     </group>
                 </sheet>
@@ -177,7 +177,7 @@
                     <filter string="Status" name="state" context="{'group_by':'state'}"/>
                     <filter string="Course" name="course" context="{'group_by':'course'}"/>
                     <filter string="gender" name="gender" context="{'group_by':'gender'}"/>
-<!--                    <filter string="College" name="college" context="{'group_by':'college'}"/>-->
+                    <filter string="College" name="college" context="{'group_by':'college'}"/>
                 </group>
             </search>
         </field>
