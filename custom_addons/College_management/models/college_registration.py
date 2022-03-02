@@ -12,8 +12,10 @@ class CollegeRegistration(models.Model):
     address = fields.Text(string="Address")
     code = fields.Integer()
     email = fields.Char()
+    available_course=fields.Many2many('unv.course',string='Courses')
     rating = fields.Selection([('1','1'),('2','2'),('4','4'),('3','3')])
     student_count = fields.Integer(string='Student Count',compute='_compute_student_count')
+    # course_count = fields.Integer(string='Number of Course Available',compute='_compute_course_count')
 
     def _compute_student_count(self):
 
@@ -31,6 +33,9 @@ class CollegeRegistration(models.Model):
             'target':'current',
 
         }
+    # def _compute_course_count(self):
+    #     course_count = self.env['college.registration'].search_count([('course_name', '=', self.ids)])
+    #     self.student_count = course_count
 
     # def send(self):
     #     print("funtion works")

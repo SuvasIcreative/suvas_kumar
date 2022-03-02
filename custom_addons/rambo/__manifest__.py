@@ -29,6 +29,7 @@
         #'views/sale.xml',
         #'views/contact.xml',
         'views/smart_views.xml',
+        'views/orm_pra.xml'
     ],
     'license': 'LGPL-3',
     'sequence': 10,

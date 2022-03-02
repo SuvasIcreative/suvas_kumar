@@ -10,9 +10,8 @@
                 <field name="email"/>
                 <field name="address"/>
                 <field name="code"/>
+                <field name="available_course"/>
                 <field name="student_count"/>
-
-
             </tree>
         </field>
     </record>
@@ -65,7 +64,8 @@
                         <group>
                             <field name="code"/>
                             <field name="email" widget="email"/>
-
+<!--                            <field name="course_count"/>-->
+                            <field name="available_course"/>
                         </group>
 
 

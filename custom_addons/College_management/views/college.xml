@@ -7,6 +7,7 @@
         <field name="arch" type="xml">
             <tree>
                 <field name="name"/>
+                <field name="course"/>
                 <field name="email"/>
                 <field name="address"/>
                 <field name="code"/>
@@ -51,6 +52,7 @@
                         <group>
                             <field name="code"/>
                             <field name="email" widget="email"/>
+                            <field name="course"/>
 
                         </group>
 
@@ -81,11 +83,15 @@
 
     <!--    manus-->
 
-    <menuitem id="college_menu" name="College" parent="college_root" action="college_action_window" sequence="10"/>
+    <menuitem id="college_menu" name="University" parent="college_root" action="college_action_window" sequence="10"/>
     <menuitem id="college_sub_root" name="Menu 2" parent='college_menu' action="college_action_window"/>
     <menuitem id="college_sub" name="Menu 3" parent='college_sub_root' action="college_action_window"/>
-    <menuitem id="college_sub1" name="Student Form" parent="college_sub_root" action="action_college_wizard" />
+    <menuitem id="college_sub1" name="Student Form" parent="college_sub_root" action="action_college_wizard"/>
     <menuitem id="student_menu" name="Student" parent="college_root" action="student_action_window" sequence="10"/>
-    <menuitem id="college_sub_manu" name="Register College" parent='college_menu' action="college_registration_action_window"/>
-    <menuitem id="department_menu" name="Department" parent="college_root" action="department_action_window" sequence="10"/>
+    <menuitem id="college_sub_manu" name="Register College" parent='college_menu'
+              action="college_registration_action_window"/>
+    <menuitem id="department_menu" name="Department" parent="college_root" action="department_action_window"
+              sequence="10"/>
+    <menuitem id="course_menu" name="Course" parent="college_root" action="unv_course_action_window" sequence="10"/>
+
 </odoo>

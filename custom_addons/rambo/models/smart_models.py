@@ -86,12 +86,12 @@ class rambo(models.Model):
             new_record = self.copy()
             print(new_record)
     #
-    # def action_confirm(self):
+    def action_confirm(self):
     #      # self.create({'name': 'Cybrosys', 'email': 'demo@cybrosys.com'})
     #
     #     self.unlink()
     #
-    #     self.write({'name': 'demo@cybrosys.info12305'})
+        self.write({'email': 'demo@cybrosys.info12305'})
     #
     #     man=self.browse([12])
     #     if man.exists():
@@ -99,4 +99,10 @@ class rambo(models.Model):
     #     else:
     #         print("56859852")
 
+
+    @api.model
+    def default_get(self,field_list=[]):
+        smart1=super(rambo, self).default_get(field_list)
+        smart1['name']='Adrash'
+        return smart1
 

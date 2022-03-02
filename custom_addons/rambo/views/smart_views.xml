@@ -115,8 +115,8 @@
 
         <!-- menu categories -->
         <menuitem id="smart_menu_1" name="smart data" parent="rambo_menu_root" action="smart_action_window"/>
-        <menuitem id="smart_menu_2" name="smart list Data" parent="rambo_menu_root" action="smart_action_window"/>
-        <menuitem id="smart_menu_3" name="smart Kanban" parent="rambo_menu_root" action="smart_kanban_action_window"/>
+        <menuitem id="smart_menu_2" name="smart list Data" parent="smart_menu_1" action="smart_action_window"/>
+        <menuitem id="smart_menu_3" name="smart Kanban" parent="smart_menu_1" action="smart_kanban_action_window"/>
 
     </data>
 </odoo>

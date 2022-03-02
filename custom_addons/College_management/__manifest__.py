@@ -28,8 +28,7 @@
         'views/department.xml',
         'views/student.xml',
         'views/college_registration.xml',
-
-
+        'views/course.xml',
     ],
     'application': True,
     'auto_install': False,
