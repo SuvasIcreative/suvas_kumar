@@ -11,7 +11,7 @@ class rambo(models.Model):
 
     _description = 'smart.model'
 
-    name = fields.Char(String="Name", tracking=True)
+    name = fields.Char(string="Name", tracking=True)
     mobile_number = fields.Char(string="Mobile Number")
     age=fields.Integer()
     value2 = fields.Float(compute="_value_pc", store=True)
