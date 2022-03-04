@@ -8,6 +8,7 @@ from datetime import datetime
 class rambo(models.Model):
     _name = 'rambo.rambo'
     _description = 'rambo.rambo'
+    _rec_name = 'name'
 
     name = fields.Char()
     value = fields.Integer()
@@ -49,17 +50,19 @@ class rambo(models.Model):
             res.append((rec.id, '%s -%s' % (rec.name, rec.gender)))
         return res
 
-    '''Hear this funtion is create for orm field relation many2one in that 
+    '''Hear this function is create for orm field relation many2one in that 
      search data use by user filed data,name,and gender this give us output  '''
+
     @api.model
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
         args = args or []
         domain = []
         if name:
-            domain = ['|','|',('user', operator, name), ('name', operator, name), ('gender', operator, name)]
+            domain = ['|', '|', ('user', operator, name), ('name', operator, name), ('gender', operator, name)]
         return self._search(domain, args, limit=limit, access_rights_uid=name_get_uid)
 
 
+''' For one2many field inherit'''
 class Demo(models.Model):
     _inherit = 'res.partner'
     res_id = fields.Many2one('rambo.rambo')
