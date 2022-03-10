@@ -44,7 +44,8 @@
                                 <field name="start_date"/>
                                 <field name="end_date"/>
                                 <field name="rental_product_id"/>
-                                <field name="price"/>
+                                <field name="currency_id" attrs="{'column_invisible':1}"/>
+                                <field name="price" class="oe_inline" widget='monetary' options="{'currency_field': 'currency_id'}"/>
                             </group>
                         </group>
                     </sheet>
@@ -68,7 +69,6 @@
                     <filter name="state_is_waiting" string="Waiting" domain="[('state', '=', 'waiting')]"/>
                     <filter name="state_is_approve" string="Approve" domain="[('state', '=', 'approve')]"/>
                     <filter name="state_is_cancel" string="Cancel" domain="[('state', '=', 'cancel')]"/>
-                    <separator/>
                     <group expand="0" string="Group By">
                         <filter string="Name " name="name_id" context="{'group_by':'new_name_id'}"/>
                         <filter string="Customer" name="customer_id" context="{'group_by':'customer_id'}"/>

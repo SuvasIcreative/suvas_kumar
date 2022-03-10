@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<!--    tree view-->
+    <record id="department_tree" model="ir.ui.view">
+        <field name="name">department.management.tree</field>
+        <field name="model">department.management</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+
+            </tree>
+        </field>
+    </record>
+
+<!--    kanban view-->
+
+<!--    <record id="college_kanban" model="ir.ui.view">-->
+<!--        <field name="name">college.management.kanban</field>-->
+<!--        <field name="model">college.management</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <kanban>-->
+<!--                <field name="name"/>-->
+<!--                <field name="email"/>-->
+<!--                <field name="address"/>-->
+<!--                <field name="code"/>-->
+
+<!--            </kanban>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!--form views-->
+    <record id="department_form" model="ir.ui.view">
+        <field name="name">department.management.form</field>
+        <field name="model">department.management</field>
+        <field name="arch" type="xml">
+            <form string="Action">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+
+
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!--    action views-->
+
+    <record id="department_action_window" model="ir.actions.act_window">
+        <field name="name">department1</field>
+        <field name="res_model">department.management</field>
+        <field name="view_mode">tree,form,kanban</field>
+
+    </record>
+
+    <!--man manu-->
+<!--    <menuitem id="department_root" name="department" />-->
+
+    <!--    manus-->
+
+    <menuitem id="department_root" name="Department" parent='college_root' action="department_action_window" />
+<!--    <menuitem id="department_sub" name="Menu 3" parent='department_sub_root' action="department_action_window" />-->
+<!--    <menuitem id="department_sub1" name="Menu 4" parent='department_sub_root' action="department_action_window" />-->
+</odoo>
