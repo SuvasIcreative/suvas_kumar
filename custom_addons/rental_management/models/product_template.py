@@ -10,3 +10,6 @@ class ProductTemplate(models.Model):
 
     is_rental = fields.Boolean(string="Is Rental")
     rental_type = fields.Many2one('rental.type', string='Rental Type')
+
+
+

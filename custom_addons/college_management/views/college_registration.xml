@@ -89,6 +89,6 @@
 
     <!--    manus-->
 
-    <menuitem id="college_registration_menu" name="College Registration" parent="college_root" action="college_registration_action_window" />
+    <menuitem id="college_registration_menu" name="College Registration" parent="college_menu" action="college_registration_action_window" />
 
 </odoo>

@@ -20,9 +20,24 @@ class sale(models.Model):
             self.mobile_number=self.partner_id.mobile
             self.email_id=self.partner_id.email
 
+
+
     @api.constrains('payment_term_id', 'partner_id')
     def _check_payment_term(self):
         for rec in self:
             if rec.payment_term_id != rec.partner_id.property_supplier_payment_term_id:
                 raise UserError('Payment Terms do not match!')
 
+    # def test_button(self):
+    #     print("hwhhhhhh")
+
+
+
+    # def name_get(self):
+    #     result = []
+    #     for rec in self:
+    #         name = rec.name
+    #         if rec.code:
+    #             name = '(%s) %s' % (rec.code, name)
+    #         result.append((rec.id, name))
+    #     return result
