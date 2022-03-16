@@ -11,16 +11,14 @@
                         <field name="customer_email_id"/>
                     </group>
                     <group>
-                        <field name="sale_person_id"/>
+                        <field name="sale_person"/>
                         <field name="sale_person_contact"/>
                         <field name="payment_term"/>
                     </group>
                 </group>
-<!--                <footer>-->
-<!--                    <button name="college" string="Save" type="object" class="btn-primary"-->
-<!--                            data-hotkey="q"/>-->
-<!--                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>-->
-<!--                </footer>-->
+                <footer>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
             </form>
         </field>
     </record>

@@ -6,6 +6,12 @@
             <field name="model">orm.pra</field>
             <field name="arch" type="xml">
                 <form>
+                     <button id='button_read' string="Read" name="action_read"
+                            class="btn-primary" type="object"/>
+                    <button id='button_search_read' string="Search Read" name="action_search_read"
+                            class="btn-primary" type="object"/>
+                    <button id='button_browse' string="Browse" name="action_browse"
+                            class="btn-primary" type="object"/>
                     <sheet>
                         <group>
                             <field name="name" options="{'no_create':'True'}"/>

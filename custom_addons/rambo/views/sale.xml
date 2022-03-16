@@ -1,6 +1,6 @@
 <?xml version= "1.0" encoding= "UTF-8"?>
 <odoo>
-    <record id="view_order_form_modify" model="ir.ui.view">
+    <record id="view_sale_order_form_modify" model="ir.ui.view">
         <field name="name">view_order_form_modify</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
@@ -14,7 +14,7 @@
             </xpath>
         </field>
     </record>
-    <record id="view_order_tree_modify" model="ir.ui.view">
+    <record id="view_sale_order_tree_modify" model="ir.ui.view">
         <field name="name">view_order_tree_modify</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/>
@@ -26,7 +26,7 @@
             </field>
         </field>
     </record>
-    <record id="view_order_form1_modify" model="ir.ui.view">
+    <record id="view_order_form_modify" model="ir.ui.view">
         <field name="name">view_order_tree_modify</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
@@ -38,7 +38,7 @@
             </field>
         </field>
     </record>
-    <record id="view_order1234_form" model="ir.ui.view">
+    <record id="view_order_form" model="ir.ui.view">
         <field name="name">view_sale_order_modify</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>

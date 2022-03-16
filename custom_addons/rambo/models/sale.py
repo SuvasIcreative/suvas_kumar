@@ -41,3 +41,12 @@ class sale(models.Model):
     #             name = '(%s) %s' % (rec.code, name)
     #         result.append((rec.id, name))
     #     return result
+
+
+    def action_confirm(self):
+        res=super(sale,self).action_confirm()
+        for i in self:
+            if len(i.order_line)>3:
+                raise UserError("Oder line is max (just 3 line)")
+        return res
+
