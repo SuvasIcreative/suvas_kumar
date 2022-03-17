@@ -17,8 +17,8 @@ class sale(models.Model):
     @api.onchange('partner_id')
     def _onchange_mobile_number(self):
         if self.partner_id:
-            self.mobile_number=self.partner_id.mobile
-            self.email_id=self.partner_id.email
+            self.mobile_number = self.partner_id.mobile
+            self.email_id = self.partner_id.email
 
 
 
@@ -44,9 +44,9 @@ class sale(models.Model):
 
 
     def action_confirm(self):
-        res=super(sale,self).action_confirm()
+        res = super(sale, self).action_confirm()
         for i in self:
-            if len(i.order_line)>3:
+            if len(i.order_line) > 3:
                 raise UserError("Oder line is max (just 3 line)")
         return res
 
