@@ -23,15 +23,8 @@ class StudentManagement(models.Model):
     reference = fields.Many2one('res.partner', string="Reference")
     gender = fields.Selection([
         ('male', 'Male'), ('female', 'Female'), ('other', 'Other')], string='Gender', tracking=True)
-    course = fields.Selection([('course1', 'CIVIL ENGINEERING'),
-                               ('course2', 'COMPUTER ENGINEERING'),
-                               ('course4', 'ELECTRICAL ENGINEERING '),
-                               ('course3', 'ELECTRONICS & COMMUNICATION ENGINEERING'),
-                               ('course5', ' MECHANICAL ENGINEERING'),
-                               ('course6', 'AUTOMOBILE ENGINEERING '),
-                               ('course7', 'MECHANICAL ENGINEERING'),
-                               ('course8', 'INFORMATION TECHNOLOGY ')],
-                              string='Course', tracking=True)
+    course_id = fields.Many2one('unv.course', string='Course')
+
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirm'),
                               ('complete', 'Complete'),
                               ('cancel', 'Cancel')],

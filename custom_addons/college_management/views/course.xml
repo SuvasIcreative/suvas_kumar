@@ -57,7 +57,16 @@
         <field name="model">unv.course</field>
         <field name="arch" type="xml">
             <form>
-                <sheet>
+               <sheet>
+<!--<div class="oe_button_box" name="button_box">-->
+<!--                        <button name="action_open_student_enroll" type="object"-->
+<!--                                class="oe_stat_button" icon="fa-user">-->
+<!--                            <div class="o_stat_info">-->
+<!--                                <field name="student_enroll" class="o_stat_value"/>-->
+<!--                                <span class="o_stat_text">Students</span>-->
+<!--                            </div>-->
+<!--                        </button>-->
+<!--                    </div>-->
                     <field name="file" widget="image" class="oe_avatar"
                            options="{&quot;preview_image&quot;: &quot;avatar_128&quot;}"/>
                     <group>
@@ -67,6 +76,7 @@
                         </group>
                         <group>
                             <field name="course_code"/>
+                            <field name="student_enroll" invisible="1"/>
                         </group>
                     </group>
                 </sheet>

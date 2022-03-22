@@ -33,7 +33,7 @@ class SaleOderWizard(models.TransientModel):
         val = rec.read(['partner_id','email_id','user_id','payment_term_id','mobile_number'])
         SaleOrder = super(SaleOderWizard, self).default_get(fields_list)
 
-        # print("\n\n\n\n",SaleOrder,"\n\n",val,"\n\n\n\n")
+
         for r in val:
             name = (r["partner_id"])
             sale_person = reversed(r["user_id"])

@@ -84,8 +84,11 @@
     <!--    manus-->
 
     <menuitem id="college_menu" name="University" parent="college_root" action="college_action_window" sequence="10"/>
-    <menuitem id="college_sub_root" name="Menu 2" parent='college_menu' action="college_action_window"/>
-    <menuitem id="college_sub" name="Menu 3" parent='college_sub_root' action="college_action_window"/>
+<!--    <menuitem id="college_sub_root" name="Menu 2" parent='college_menu' action="college_action_window"/>-->
+<!--    <menuitem id="college_sub_root1" name="Menu 22" parent='college_menu' action="college_action_window"/>-->
+<!--    <menuitem id="college_sub" name="Menu " parent='college_menu' action="college_action_window"/>-->
+<!--    <menuitem name="Appointment For Student" id="menu_student_appointment" parent="college_menu"-->
+<!--               sequence="10"/>-->
 <!--    <menuitem id="college_sub1" name="Student Form" parent="college_sub_root" action="action_college_wizard"/>-->
 <!--    <menuitem id="student_menu" name="Student" parent="college_root" action="student_action_window" sequence="10"/>-->
 <!--    <menuitem id="college_sub_manu" name="Register College" parent='college_menu'-->

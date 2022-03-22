@@ -15,9 +15,9 @@ class OrmPra(models.Model):
 
     # @api.model
     # def default_get(self,field_list=[]):
-    #     smart1=super(rambo, self).default_get(field_list)
-    #     smart1['name']='Adrash'
-    #     return smart1
+    #     res=super(rambo, self).default_get(field_list)
+    #     res['name']='Adrash'
+    #     return res
     def action_read(self):
         read_list = self.env['res.partner'].search([])
         list1 = (read_list.read(['email', 'mobile']))

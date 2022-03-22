@@ -11,7 +11,7 @@
                 <field name="email"/>
                 <field name="enrollment_number"/>
                 <field name="address"/>
-                <field name="course"/>
+                <field name="course_id"/>
                 <field name="mobile_no"/>
                 <field name="gender"/>
 
@@ -51,7 +51,7 @@
                                         </li>
                                         <li>
                                             Course:
-                                            <field name="course"/>
+                                            <field name="course_id"/>
                                         </li>
                                         <li>
                                             Mobile_No:
@@ -85,7 +85,7 @@
                 <field name="email" widget="email"/>
                 <field name="enrollment_number"/>
                 <!--                <field name="address"/>-->
-                <field name="course"/>
+                <field name="course_id"/>
                 <field name="mobile_no" widget="phone"/>
                 <field name="reference" widget="many2one_avatar" options="{'color_field':'color'}"/>
                 <field name="college"/>
@@ -135,7 +135,7 @@
                         <group>
                             <field name="address"/>
                             <field name="mobile_no" widget="phone"/>
-                            <field name="course"/>
+                            <field name="course_id"/>
                             <field name="email" widget="email"/>
                             <!--                            <field name="reference" options="{'no_create':'True'}"/>-->
                             <field name="reference" options="{'no_open':'True'}"/>
@@ -160,7 +160,7 @@
         <field name="model">student.management</field>
         <field name="arch" type="xml">
             <search string="Student">
-                <field name="course"/>
+                <field name="course_id"/>
                 <field name="email"/>
                 <field name="state"/>
                 <separator/>
@@ -175,7 +175,7 @@
                 <!--                <separator/>-->
                 <group expand="1" string="Group By">
                     <filter string="Status" name="state" context="{'group_by':'state'}"/>
-                    <filter string="Course" name="course" context="{'group_by':'course'}"/>
+                    <filter string="Course" name="course_id" context="{'group_by':'course_id'}"/>
                     <filter string="gender" name="gender" context="{'group_by':'gender'}"/>
                     <filter string="College" name="college" context="{'group_by':'college'}"/>
                 </group>
@@ -189,7 +189,7 @@
         <field name="res_model">student.management</field>
         <field name="view_mode">tree,form,kanban</field>
 
-        <!--        <field name="context">{"search_default_filter_to_course": 1}</field>-->
+<!--                <field name="context">{"search_default_filter_to_course": 1}</field>-->
     </record>
     <record id="student_action_form_window" model="ir.actions.act_window">
         <field name="name">student</field>
@@ -211,6 +211,15 @@
               action="student_action_window"/>
     <menuitem id="student_sub_root" name="Student Form" parent='student_root'
               action="student_action_form_window"/>
+    <menuitem id="student_sub_root1" name="Appointment For Student" parent='student_root'
+              action="action_student_appointment_wizard"/>
+
+<!--    <menuitem id="student_sub_root2" name="Appointment For Student" parent='student_root'-->
+<!--              action="action_student_appointment_wizard"/>-->
+
+
+
+
     <!--    <menuitem id="student_sub" name="Menu 3" parent='student_sub_root' action="student_action_window"/>-->
     <!--    <menuitem name="submenu" id="menu_procurement_compute" parent="student_sub"-->
     <!--              action="action_procurement_compute"/>-->

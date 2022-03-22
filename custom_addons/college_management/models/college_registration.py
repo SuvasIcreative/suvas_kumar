@@ -8,7 +8,7 @@ class CollegeRegistration(models.Model):
     # _inherit='res.partner'
     _description = 'college.registration'
 
-    name = fields.Char(string="Name")
+    name = fields.Char(string="Name", size=5)
     address = fields.Text(string="Address")
     code = fields.Integer()
     email = fields.Char()
@@ -25,12 +25,12 @@ class CollegeRegistration(models.Model):
 
     def action_open_available_student(self):
         return {
-            'type':'ir.actions.act_window',
-            'name':'Students',
-            'res_model':'student.management',
-            'domain':[('college','=',self.ids)],
-            'view_mode':'tree,form',
-            'target':'current',
+            'type': 'ir.actions.act_window',
+            'name': 'Students',
+            'res_model': 'student.management',
+            'domain': [('college', '=', self.ids)],
+            'view_mode': 'tree,form',
+            'target': 'current',
 
         }
     # def _compute_course_count(self):
