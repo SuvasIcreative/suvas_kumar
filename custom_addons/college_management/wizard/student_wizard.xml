@@ -7,16 +7,23 @@
             <form>
                 <sheet>
                     <group>
-                        <field name="student_name"/>
-                        <field name="enrollment_number"/>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="enrollment_number"/>
+                            <field name="appointment_date"/>
+                            <field name="appointment_time"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
                     </group>
                 </sheet>
 
-                <!--                <footer>-->
-                <!--                    <button name="procure_calculation" string="Run Scheduler" type="object" class="btn-primary"-->
-                <!--                            data-hotkey="q"/>-->
-                <!--                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>-->
-                <!--                </footer>-->
+                <footer>
+                    <!--                                    <button name="procure_calculation" string="Run Scheduler" type="object" class="btn-primary"-->
+                    <!--                                            data-hotkey="q"/>-->
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
             </form>
         </field>
     </record>
@@ -29,10 +36,9 @@
         <field name="target">new</field>
     </record>
 
-<!--<menuitem  id="menu_student_appointment" name="Appointment For Student" parent="student_root"-->
-<!--              action="action_student_appointment_wizard"/>-->
-    <!--    <menuitem name="Appointment For Student" id="menu_student_appointment" parent="college_menu"-->
-    <!--              action="action_student_appointment_wizard"/>-->
+        <menuitem id="menu_student_appointment" name="Appointment" parent="college_management.student_root"
+                  action="action_student_appointment_wizard"/>
+
 
 
 </odoo>

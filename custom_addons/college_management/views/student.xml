@@ -135,7 +135,9 @@
                         <group>
                             <field name="address"/>
                             <field name="mobile_no" widget="phone"/>
-                            <field name="course_id"/>
+                            <field name="course_id" invisible="1"/>
+                            <field name="course_info_id" context="{'college': college}"/>
+<!--                            <field name="yy"/>-->
                             <field name="email" widget="email"/>
                             <!--                            <field name="reference" options="{'no_create':'True'}"/>-->
                             <field name="reference" options="{'no_open':'True'}"/>
@@ -205,14 +207,14 @@
 
     <!--    manus-->
 
-    <menuitem id="student_root" name="Student" parent='college_root'
+    <menuitem id="student_root" name="Student" parent='college_management.college_root'
               action="student_action_window"/>
-    <menuitem id="student_manu" name="Student_list" parent='student_root'
+    <menuitem id="student_manu" name="Student_list" parent='college_management.student_root'
               action="student_action_window"/>
-    <menuitem id="student_sub_root" name="Student Form" parent='student_root'
+    <menuitem id="student_sub_root" name="Student Form" parent='college_management.student_root'
               action="student_action_form_window"/>
-    <menuitem id="student_sub_root1" name="Appointment For Student" parent='student_root'
-              action="action_student_appointment_wizard"/>
+<!--    <menuitem id="student_sub_root1" name="Appointment For Student" parent='student_root'-->
+<!--              action="action_student_appointment_wizard"/>-->
 
 <!--    <menuitem id="student_sub_root2" name="Appointment For Student" parent='student_root'-->
 <!--              action="action_student_appointment_wizard"/>-->

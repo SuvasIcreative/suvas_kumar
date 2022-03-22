@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+      <!--    tree view-->
+    <record id="student_appointment_tree" model="ir.ui.view">
+        <field name="name">student.appointment.tree</field>
+        <field name="model">student.appointment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_name"/>
+                <field name="enrollment_number"/>
+                <field name="appointment_date"/>
+                <field name="appointment_time"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_student_appointment_wizard_form" model="ir.ui.view">
+        <field name="name">student appointment</field>
+        <field name="model">student.appointment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="enrollment_number"/>
+                            <field name="appointment_date"/>
+                            <field name="appointment_time"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_student_appointment" model="ir.actions.act_window">
+        <field name="name">student_appointment</field>
+        <field name="res_model">student.appointment</field>
+        <!--        <field name="view_id" ref="view_student_appointment_wizard_form"/>-->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+<menuitem  id="menu_student_appointment" name="Appointment" parent="college_management.college_root"
+              action="action_student_appointment"/>
+    <!--    <menuitem name="Appointment For Student" id="menu_student_appointment" parent="college_menu"-->
+    <!--              action="action_student_appointment_wizard"/>-->
+
+
+</odoo>

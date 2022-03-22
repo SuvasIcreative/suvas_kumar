@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+
+
+
+
 {
     'name': "College Management",
 
@@ -16,19 +20,21 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['mail','contacts'],
+    'depends': ['mail', 'contacts'],
 
     # always loaded
     'data': [
-        'wizard/student_wizard.xml',
-        'wizard/college_wizard.xml',
-        'data/data.xml',
         'security/ir.model.access.csv',
+        'data/data.xml',
         'views/college.xml',
         'views/department.xml',
         'views/student.xml',
+        'wizard/student_wizard.xml',
+        'wizard/college_wizard.xml',
         'views/college_registration.xml',
         'views/course.xml',
+        'views/i_res_config_settings.xml',
+        'views/student_appointment.xml',
     ],
     'application': True,
     'auto_install': False,

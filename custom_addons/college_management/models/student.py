@@ -23,8 +23,9 @@ class StudentManagement(models.Model):
     reference = fields.Many2one('res.partner', string="Reference")
     gender = fields.Selection([
         ('male', 'Male'), ('female', 'Female'), ('other', 'Other')], string='Gender', tracking=True)
-    course_id = fields.Many2one('unv.course', string='Course')
-
+    course_id = fields.Many2many('unv.course', related='college.available_course', string='Course')
+    course_info_id = fields.Many2one('unv.course',string='Course')
+    # yy = fields.Many2one('unv.course')
     state = fields.Selection([('draft', 'Draft'), ('confirm', 'Confirm'),
                               ('complete', 'Complete'),
                               ('cancel', 'Cancel')],
