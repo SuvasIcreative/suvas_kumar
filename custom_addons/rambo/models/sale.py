@@ -13,6 +13,7 @@ class sale(models.Model):
     date_of_birth = fields.Date(string="Date Of Birth", required=False,related='partner_id.dob')
     mobile_number = fields.Integer(string="Mobile Number")
     email_id = fields.Char(string="Email")
+    ref_info_id=fields.Many2one('res.partner',string='Display With Country')
 
     @api.onchange('partner_id')
     def _onchange_mobile_number(self):
@@ -49,4 +50,6 @@ class sale(models.Model):
             if len(i.order_line) > 3:
                 raise UserError("Oder line is max (just 3 line)")
         return res
+
+
 
