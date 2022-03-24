@@ -1,0 +1,122 @@
+<odoo>
+    <data>
+        <!--        form views-->
+        <record id="smart_form" model="ir.ui.view">
+            <field name="name">smart form</field>
+            <field name="model">smart.model</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button id='button_confirm' string="Confirm" name="action_confirm"
+                                class="btn-primary" type="object"/>
+                        <button id='button_search' string="Search" name="action_search"
+                                class="btn-primary" type="object"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button name="%(contacts.action_contacts)d" type="action"
+                                    class="oe_stat_button" icon="fa-star">
+                                <div class="o_stat_info">
+                                    <!--                                <field name="leads_count" class="o_stat_value"/>-->
+                                    <span class="o_stat_text">Leads</span>
+                                </div>
+                            </button>
+
+                        </div>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="age"/>
+                                <field name="dob"/>
+                                <field name="gender"/>
+                                <field name="user"/>
+                                <field name="value2"/>
+                                <field name="user1"/>
+                                <field name="create_uid" string="create_id"/>
+                                <field name="create_date" string="create_date"/>
+                                <field name="write_uid" string="write_uid"/>
+
+                            </group>
+                            <group>
+                                <field name="description"/>
+                                <field name="mobile_number"/>
+                                <field name="create_date"/>
+                                <field name="refer"/>
+                                <field name="bool"/>
+                                <field name="bool"/>
+                                <field name="email"/>
+                                <field name="write_date" string="write_date"/>
+
+                            </group>
+
+                        </group>
+                        <notebook>
+                            <page string="Nikhar">
+                                <sheet>
+                                    <group>
+                                        <field name="notes"/>
+
+
+                                    </group>
+                                </sheet>
+                            </page>
+                            <page string="Aryan">
+                                <sheet>
+                                    <group>
+                                        <field name="file"/>
+                                    </group>
+                                </sheet>
+
+                            </page>
+                        </notebook>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <!-- explicit list view definition -->
+        <record id="smart_tree" model="ir.ui.view">
+            <field name="name">smart_tree</field>
+            <field name="model">smart.model</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="dob"/>
+                    <field name="gender"/>
+                    <field name="user"/>
+                    <field name="value2"/>
+                    <field name="user1"/>
+                    <field name="description"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="smart_action_window">
+            <field name="name">smart window</field>
+            <field name="res_model">smart.model</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="smart_tree"/>
+        </record>
+
+        <record model="ir.actions.act_window" id="smart_kanban_action_window">
+            <field name="name">smart window</field>
+            <field name="res_model">smart.model</field>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="smart_tree"/>
+        </record>
+
+
+        <!-- menu categories -->
+        <menuitem id="smart_menu_1" name="smart data" parent="rambo_menu_root" action="smart_action_window"/>
+        <menuitem id="smart_menu_2" name="smart list Data" parent="smart_menu_1" action="smart_action_window"/>
+        <menuitem id="smart_menu_3" name="smart Kanban" parent="smart_menu_1" action="smart_kanban_action_window"/>
+
+    </data>
+</odoo>

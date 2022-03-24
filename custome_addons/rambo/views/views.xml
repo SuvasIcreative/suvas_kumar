@@ -1,0 +1,123 @@
+<odoo>
+    <data>
+        <!--        form views-->
+        <record id="rambo.form" model="ir.ui.view">
+            <field name="name">rambo form</field>
+            <field name="model">rambo.rambo</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="dob"/>
+                                <field name="gender"/>
+                                <field name="user"/>
+                                <field name="value2"/>
+                                <field name="user1"/>
+
+                            </group>
+                            <group>
+                                <field name="description"/>
+                                <field name="create_date"/>
+                                <field name="refer"/>
+                                <field name="bool"/>
+                                <field name="bool"/>
+
+                            </group>
+                            <field name="mod_ids"/>
+                            <field name="mod_ids1"/>
+                        </group>
+                        <notebook>
+                            <psge string="Nikhar">
+                                <sheet>
+                                    <group>
+                                        <field name="notes"/>
+
+
+                                    </group>
+                                </sheet>
+                            </psge>
+                            <psge string="Aryan">
+                                <sheet>
+                                    <group>
+                                        <field name="file"/>
+                                    </group>
+                                </sheet>
+
+                            </psge>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- explicit list view definition -->
+        <record id="rambo_tree" model="ir.ui.view">
+            <field name="name">rambo_tree</field>
+            <field name="model">rambo.rambo</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="dob"/>
+                    <field name="gender"/>
+                    <field name="user"/>
+                    <field name="value2"/>
+                    <field name="user1"/>
+                    <field name="description"/>
+                    <field name="create_date"/>
+                </tree>
+            </field>
+        </record>
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="rambo_action_window">
+            <field name="name">rambo window</field>
+            <field name="res_model">rambo.rambo</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--        <record model="ir.actions.act_window" id="rambo.action_window_1">-->
+        <!--            <field name="name">rambo window_1</field>-->
+        <!--            <field name="res_model">rambo.rambo</field>-->
+        <!--            <field name="view_mode">tree,form,graph</field>-->
+        <!--        </record>-->
+
+        <!-- server action to the one above -->
+        <!--        <record model="ir.actions.server" id="rambo.action_server">-->
+        <!--            <field name="name">rambo server</field>-->
+        <!--            <field name="model_id" ref="model_rambo_rambo"/>-->
+        <!--            <field name="state">code</field>-->
+        <!--            <field name="code">-->
+        <!--                action = {-->
+        <!--                "type": "ir.actions.act_window",-->
+        <!--                "view_mode": "tree,form",-->
+        <!--                "res_model": model._name,-->
+        <!--                "name":"rambo server"-->
+        <!--                }-->
+        <!--            </field>-->
+        <!--        </record>-->
+
+        <!-- Top menu item -->
+
+        <menuitem name="rambo" id="rambo_menu_root"/>
+        <!-- menu categories -->
+        <menuitem id="rambo_menu_1" name="data" parent="rambo_menu_root" action="rambo_action_window"/>
+        <menuitem id="rambo_menu_2" name="list Data" parent="rambo_menu_1" action="rambo_action_window"/>
+<!--        <menuitem id="smart_menu_3" name="Smart Model" parent="rambo_menu_root" action="smart_action_window"/>-->
+        <!--        <menuitem name="Menu 1" id="rambo.menu_1" parent="rambo.menu_root"/>-->
+        <!--        <menuitem name="Repot" id="rambo.menu_3" parent="rambo.menu_root"/>-->
+        <!--        <menuitem name="Menu 2" id="rambo.menu_2" parent="rambo.menu_root"/>-->
+        <!--        <menuitem name="About" id="rambo.menu_4" parent="rambo.menu_root"/>-->
+        <!--        <menuitem name="Area" id="rambo.menu_5" parent="rambo.menu_root"/>-->
+        <!--        &lt;!&ndash; actions &ndash;&gt;-->
+        <!--        <menuitem name="List" id="rambo.menu_1_list" parent="rambo.menu_1"-->
+        <!--                  action="rambo.action_window"/>-->
+        <!--        <menuitem name="Server to list" id="rambo" parent="rambo.menu_2"-->
+        <!--                  action="rambo.action_server"/>-->
+        <!--        <menuitem name="Report" id="rambo.menu_1_list" parent="rambo.menu_1"-->
+        <!--                  action="rambo.action_window"/>-->
+        <!--        <menuitem name="about" id="rambo.menu_4_list" parent="rambo.menu_4"-->
+        <!--                  action="rambo.action_window_1"/>-->
+        <!--        <menuitem name="manu" id="rambo.menu_5_list" parent="rambo.menu_4"-->
+        <!--                  action="rambo.action_window_1"/>-->
+    </data>
+</odoo>

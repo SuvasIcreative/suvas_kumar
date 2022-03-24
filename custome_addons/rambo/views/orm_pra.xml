@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+        <!--        form views-->
+        <record id="orm_form" model="ir.ui.view">
+            <field name="name">orm form</field>
+            <field name="model">orm.pra</field>
+            <field name="arch" type="xml">
+                <form>
+                     <button id='button_read' string="Read" name="action_read"
+                            class="btn-primary" type="object"/>
+                    <button id='button_search_read' string="Search Read" name="action_search_read"
+                            class="btn-primary" type="object"/>
+                    <button id='button_browse' string="Browse" name="action_browse"
+                            class="btn-primary" type="object"/>
+                    <sheet>
+                        <group>
+                            <field name="name" options="{'no_create':'True'}"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- explicit list view definition -->
+        <record id="orm_tree" model="ir.ui.view">
+            <field name="name">orm_tree</field>
+            <field name="model">orm.pra</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+        <!-- actions opening views on models -->
+        <record model="ir.actions.act_window" id="orm_tree_action_window">
+            <field name="name">smart window</field>
+            <field name="res_model">orm.pra</field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="orm_tree"/>
+        </record>
+        <record model="ir.actions.act_window" id="orm_form_action_window">
+            <field name="name">smart window</field>
+            <field name="res_model">orm.pra</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="orm_form"/>
+        </record>
+
+        <!-- menu categories -->
+        <menuitem id="orm_menu_1" name="Orm " parent="rambo_menu_root" action="orm_tree_action_window"/>
+        <menuitem id="orm_menu_2" name="Orm Form" parent="orm_menu_1" action="orm_form_action_window"/>
+        <menuitem id="orm_menu_3" name="Orm List" parent="orm_menu_1" action="orm_tree_action_window"/>
+    </data>
+</odoo>

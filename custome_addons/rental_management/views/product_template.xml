@@ -1,0 +1,45 @@
+<?xml version= "1.0" encoding= "UTF-8"?>
+<odoo>
+    <record id="view_product_template_form_modify" model="ir.ui.view">
+        <field name="name">product.template.form</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <span class="d-inline-block">
+                    <field name="is_rental" modifiers="{}"/>
+                    <label for="is_rental"/>
+                </span>
+            </div>
+        </field>
+    </record>
+    <record id="view_form_modify" model="ir.ui.view">
+        <field name="name">form_modify</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//*[@name='barcode']" position="after">
+                <field name="rental_type" attrs="{'invisible':[('is_rental','=',False)]}"/>
+            </xpath>
+            <notebook position="inside">
+                <page string="Rental Type" name="rental_type_page"
+                      attrs="{'invisible':[('is_rental','=',False)]}">
+                    <group name="group_rental">
+                        <field name="rental_type"/>
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+    <record id="view_sale_product_search" model="ir.ui.view">
+        <field name="name">product_template_search</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_search_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='filter_to_purchase']" position="after">
+                <filter name="Is Rental" domain="[('is_rental', '=', True)]"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
