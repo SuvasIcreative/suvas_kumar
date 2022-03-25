@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_rental_management_templet">
+            <t t-call="web.html_container">
+                <t t-foreach="doc" t-as="o">
+<!--                    <t t-call="report_rental_management.external_layout_standard">-->
+                    <t t-call="web.internal_layout">
+                        <div class="page" style="background-color:#AF3C3C">
+                            <div class="oe_structure">
+                                <div class="row">
+                                    <div class="col-xs-8">
+                                        <center>
+                                            <h1>Rental Management Report</h1>
+                                        </center>
+                                        <table width="100%" border="0"
+                                               style="height: 30%;border:3px solid black;width:100%;background-color:#efb2b2;">
+                                            <tr>
+                                                <td width="60">
+                                                    <tr>
+                                                        <th class="border padding text-center" width="20%"
+                                                            style="border: 1px solid black; background-color:#DB4C4C;">
+                                                            <p>
+                                                                <span t-field="o.new_name_id"/>
+                                                            </p>
+                                                        </th>
+                                                    </tr>
+                                                </td>
+                                                <tr>
+                                                    <td width="100">
+                                                        <h3>
+                                                            <span t-field="o.name"/>
+                                                        </h3>
+                                                    </td>
+                                                </tr>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <p>Customer:
+                                                        <span t-field="o.customer_id"/>
+                                                    </p>
+                                                    <p>Rental Type:
+                                                        <span t-field="o.rental_type_id"/>
+                                                    </p>
+                                                    <p>State:
+                                                        <span t-field="o.state"/>
+                                                    </p>
+                                                    <p>Start Date:
+                                                        <span t-field="o.start_date" style="background-color:#008000"/>
+                                                    </p>
+                                                    <p>End Date:
+                                                        <span t-field="o.end_date" style="background-color:#CC0000"/>
+                                                    </p>
+                                                    <p>Rental Product:
+                                                        <span t-field="o.rental_product_id"/>
+                                                    </p>
+                                                    <p>Price:₹
+                                                        <span t-field="o.price"/>
+                                                    </p>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </template>
+        <template id="report_rental_management">
+            <t t-call="web.html_container">
+                <t t-foreach="docs" t-as="doc">
+                    <t t-call="rental_management.report_rental_management_templet"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</odoo>

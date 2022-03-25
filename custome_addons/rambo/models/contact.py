@@ -52,16 +52,15 @@ class ResPartner(models.Model):
         result = super(ResPartner, self).name_get()
         for rec, get_name in zip(self,result):
             if rec.country_id and self.env.context.get('special_display_name') == 'country_name':
-                print('_hkjjjjjjjjjjhsdfhuishuifyhshfgisduih___')
+                # print('_hkjjjjjjjjjjhsdfhuishuifyhshfgisduih___')
                 index = result.index(get_name)
                 result[index] = (rec.id, f"[{rec.country_id.name}] and {rec.name}")
             if rec.customer_r and self.env.context.get('com_ref') == 'customer_h':
-                print('____________________________')
+                # print('____________________________')
                 index = result.index(get_name)
                 result[index] = (rec.id, f"[{rec.customer_r}] and {rec.name}")
         return result
-        # return [(rec.id, '%s-%s' % (
-        #     rec.name, rec.country_id and rec.country_id.code or '')) for rec in self]
+
         # if self.env['student.management']._context.get('Nikhar', False):
         #     for rec in self:
         #         if rec.function == False:

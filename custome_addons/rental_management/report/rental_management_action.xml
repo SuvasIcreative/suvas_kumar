@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_rental_management_report_id" model="ir.actions.report">
+            <field name="name">Rental Report</field>
+            <field name="model">rental.management</field>
+            <field name="binding_model_id" ref="model_rental_management"/>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">rental_management.report_rental_management</field>
+            <field name="report_file">rental_management.report_rental_management</field>
+            <field name="print_report_name">'Rental Report - %s' % (object.name)</field>
+            <field name="binding_type">report</field>
+            <field name="paperformat_id" ref="rental_management.rental_paper_format"/>
+        </record>
+    </data>
+</odoo>

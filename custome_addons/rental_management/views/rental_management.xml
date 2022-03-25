@@ -44,8 +44,8 @@
                                 <field name="start_date"/>
                                 <field name="end_date"/>
                                 <field name="rental_product_id"/>
-                                <field name="currency_id" attrs="{'column_invisible':1}"/>
-                                <field name="price" class="oe_inline" widget='monetary' options="{'currency_field': 'currency_id'}"/>
+                                <field name="currency_id" invisible="1"/>
+                                <field name="price" class="oe_inline" widget='monetary' options="{'currency_field':'currency_id'}"/>
                             </group>
                         </group>
                     </sheet>
