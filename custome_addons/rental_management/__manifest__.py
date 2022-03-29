@@ -16,7 +16,7 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['mail'],
+    'depends': ['mail','sale'],
 
     # always loaded
     'data': [
@@ -28,6 +28,8 @@
         'report/rental_paper_format.xml',
         'report/rental_management_template.xml',
         'report/rental_management_action.xml',
+        'views/res_partner.xml',
+        'views/sale_order.xml',
     ],
     'application': True,
     'auto_install': False,
