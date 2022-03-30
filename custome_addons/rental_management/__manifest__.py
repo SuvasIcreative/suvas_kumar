@@ -21,7 +21,9 @@
     # always loaded
     'data': [
         'data/data.xml',
+        'data/rec_partner_category_data.xml',
         'security/ir.model.access.csv',
+        'wizard/wizard1.xml',
         'views/rental_management.xml',
         'views/rental_type.xml',
         'views/product_template.xml',

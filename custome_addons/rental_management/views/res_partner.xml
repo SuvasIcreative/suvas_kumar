@@ -11,5 +11,16 @@
                 </field>
             </field>
         </record>
+
+
+<!--        <record id="demo_server_action" model="ir.actions.server">-->
+<!--            <field name="name">demo server action</field>-->
+<!--            <field name="type">ir.actions.server</field>-->
+<!--            <field name="model_id" ref="model_res_partner"/>-->
+<!--            <field name="binding_model_id" ref="model_res_partner"/>-->
+<!--            <field name="binding_view_types">tree,form</field>-->
+<!--            <field name="state">code</field>-->
+<!--            <field name="code">records.action_update_some_field()</field>-->
+<!--        </record>-->
     </data>
 </odoo>

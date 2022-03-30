@@ -26,7 +26,6 @@
             <field name='partner_id' position="before">
                 <field name="customer_reference"/>
                 <field name="date_of_birth"/>
-
             </field>
         </field>
     </record>
@@ -38,7 +37,6 @@
             <field name='payment_term_id' position="after">
                 <field name="mobile_number"/>
                 <field name="email_id"/>
-
             </field>
         </field>
     </record>

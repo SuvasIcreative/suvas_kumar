@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+        <record id="demo_serve_action" model="ir.actions.server">
+            <field name="name">Demo Server Action</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_view_types">tree,form</field>
+            <field name="state">code</field>
+            <field name="code">records.action_update_some_field()</field>
+        </record>
+
+        <record id="demo_serve_action1" model="ir.actions.server">
+            <field name="name">Demo Server Action1</field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="model_res_partner"/>
+            <field name="binding_model_id" ref="model_res_partner"/>
+            <field name="binding_view_types">tree,form</field>
+            <field name="state">code</field>
+            <field name="code">records.create_record()</field>
+        </record>
+    </data>
+</odoo>

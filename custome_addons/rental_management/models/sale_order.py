@@ -9,28 +9,29 @@ from odoo.exceptions import UserError, ValidationError
 class ResPartner(models.Model):
     _inherit = 'sale.order'
 
-    customer_rank = fields.Integer(related='partner_id.customer_rank', string="Customer Rank", required=False)
-    stare = fields.Selection([('a', '1'), ('b', '2'), ('c', '3'),
-                              ('d', '4'), ('e', '5'), ('f', '6'),
-                              ('g', '7'), ('h', '8'), ('i', '9'),
-                              ('j', '10'), ('k', '11')], string=" ")
+    # customer_rank = fields.Integer(related='partner_id.customer_rank', string="Customer Rank", required=False)
+
+    # @api.onchange('partner_id')
+    # def _onchange_customer_rank(self):
+    #     print("+++++++++++++++++++++++++++++++++++++++++++++++=",self)
+    #
+    #     if self.env['res.partner'].customer_rank >= 5:
+    #         print("__________________________________________")
+    #         self.env['res.partner'].write({'category_id': [(4, 9)]})
+    #     else:
+    #         self.env['res.partner'].write({'category_id': [(2, 9)]})
 
     @api.onchange('partner_id')
-    def _onchange_customer_rank(self):
-        if self.customer_rank >= 5:
-            self.write({'tag_ids': [(4, 9, 0)]})
-        # else:
-        #     self.write({'tag_ids':[(2,9,0)]})
-    # @api.depends("customer_rank")
-    # def _calculate_rank(self):
-    #     if self.customer_rank:
-    #         for recode
-    #             , compute = "_calculate_rank"
+    @api.model
+    def create(self, vals):
+        res = super(ResPartner, self).create(vals)
+        if res.partner_id.customer_rank > 5:
+            best_categ_id = self.env.ref("rental_management.res_partner_category_best_customer").id
+            # print ("????????????", best_categ_id)
+            res.partner_id.write(
+                {'category_id': [(4, best_categ_id)]})  # 4 - Link, best_categ_id - id of Best Customer tag
+        return res
 
-    # @api.model
-    # def default_get(self,field_list=[]):
-    #     res=super(rental_management, self).default_get(field_list)
-    #     res['name']='Adrash'
-    #     return res
-    # @api.onchange('customer_id')
-    # def _onchange_phone_number(self):
+
+
+

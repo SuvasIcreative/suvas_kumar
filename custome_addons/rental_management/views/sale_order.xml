@@ -6,13 +6,25 @@
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <field name='email_id' position="before">
-                    <field name="customer_rank"/>
-                    <field name="stare" widget="priority"/>
-                </field>
-                <xpath expr="//group/group/field[@name='partner_id']" position="after">
+                <xpath expr="//button[@name='action_cancel']" position="before">
+                    <button class="oe_stat_button"
+                            name="%(rental_management.action_sale1_wizard)d"
+                            type="action"
+                            string="Select Products"
+                    />
 
                 </xpath>
+                <!--                <field name='payment_term_id' position="before">-->
+                <!--                    <field name="customer_rank"/>-->
+                <!--                </field>-->
+
+                <!--                <div  name="button_box" position="inside">-->
+                <!--                                    <button class="oe_stat_button"-->
+                <!--                                            name="%(rental_management.action_sale1_wizard)d"-->
+                <!--                                            type="action"-->
+                <!--                                            string="Select Products"-->
+                <!--                                        icon="fa-book"/>-->
+                <!--                </div>-->
             </field>
         </record>
     </data>

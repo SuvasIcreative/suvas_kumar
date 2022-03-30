@@ -1,0 +1,25 @@
+<odoo>
+    <record id="views_sale1_wizard" model="ir.ui.view">
+        <field name="name">college1 management wizard</field>
+        <field name="model">sale.order1.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Parameters">
+                <group>
+                        <field name="product_ids"/>
+
+                </group>
+                <footer>
+                    <button name="create_order_line" string="Save" type="object" class="btn-primary" data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_sale1_wizard" model="ir.actions.act_window">
+        <field name="name">Sale1 Management</field>
+        <field name="res_model">sale.order1.wizard</field>
+        <!--         <field name="view_id" ref="views_college_wizard"/> -->
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
