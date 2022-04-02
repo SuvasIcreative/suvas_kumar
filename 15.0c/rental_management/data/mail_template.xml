@@ -1,0 +1,53 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data noupdate="1">
+        <record id="email_template_rental_management" model="mail.template">
+            <field name="name">Rent Invoice: Send by email</field>
+            <field name="model_id" ref="rental_management.model_rental_management"/>
+            <field name="email_from">{{ (object.rental_user_id.email_formatted) }}</field>
+            <field name="email_to">{{ object.email_id}}</field>
+            <field name="subject">Rent Invoice (Ref {{ object.name}})</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Dear
+                        <t t-if="object.new_name_id">
+                            <t t-out="object.new_name_id">Brandon Freeman</t>
+                            (<t t-out="object.name">Azure Interior</t>),
+                        </t>
+                        <br/>
+                        <br/>
+                        Here is your
+                        <t t-if="object.name">
+                            invoice
+                            <strong t-out="object.name">INV/2021/05/0005</strong>
+                        </t>
+                        <br/>
+                        <br/>
+                        amounting in
+                        <strong t-out="format_amount(object.price, object.currency_id)">$ 143,750.00
+                        </strong>
+                        from <t t-out="object.rental_product_id.name">YourCompany</t>.
+                        <t t-if="object.state in ('approve')">
+                            This invoice is already paid.
+                        </t>
+                        <t t-else="">
+                            Please remit payment at your earliest convenience.
+                            <t t-if="object.rental_type_id.name">
+                                <br/>
+                                <br/>
+                                Please use the following communication for your payment:
+                                <strong t-out="object.rental_type_id.name">INV/2021/05/0005</strong>.
+                            </t>
+                        </t>
+                        <br/>
+                        <br/>
+                        Do not hesitate to contact us if you have any questions.
+                    </p>
+                </div>
+            </field>
+            <field name="report_template" ref="action_rental_management_report_id"/>
+            <field name="report_name">Rent Invoice_{{ (object.new_name_id)}}</field>
+        </record>
+    </data>
+</odoo>
