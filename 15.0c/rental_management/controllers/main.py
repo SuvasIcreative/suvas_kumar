@@ -11,5 +11,5 @@ class Website(http.Controller):
 
     @http.route(['/product/<model("product.template"):order>/'], type='http', auth="user", website=True)
     def product_templet_web(self, order=0, **data):
-        print('****************************88', order)
+        # print('****************************88', order)
         return http.request.render('rental_management.product_templet_web', {'order': order})
