@@ -1,0 +1,41 @@
+<odoo>
+    <record id="views_sale_order_wizard" model="ir.ui.view">
+        <field name="name">Exam wizard</field>
+        <field name="model">sale_order_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Parameters">
+                <group>
+                    <field name="product_order_line_ids">
+                        <tree editable="bottom">
+                            <field name="product_id"/>
+                            <field name="product_quantity"/>
+                            <field name="price"/>
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button name="create_order_line" string="Create Sale Order" type="object" class="btn-primary"
+                            data-hotkey="q"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="sale_order_wizard" model="ir.actions.server">
+        <field name="name">Exam Server Action</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="state">code</field>
+        <field name="code">
+            action = {
+            "name":"Wizard Window",
+            "type":"ir.actions.act_window",
+            "view_mode":"form",
+            "res_model":"sale_order_wizard",
+            "target":"new",
+            "context": {'current_id':records.ids},
+            }
+        </field>
+    </record>
+</odoo>

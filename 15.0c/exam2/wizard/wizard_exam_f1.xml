@@ -1,0 +1,22 @@
+<odoo>
+    <record id="views_sale1_order_wizard" model="ir.ui.view">
+        <field name="name">Exam wizard</field>
+        <field name="model">sale1_order_wizard</field>
+        <field name="arch" type="xml">
+            <form string="Parameters">
+                <group>
+                    <field name="product_id"/>
+                    <field name="product_quantity"/>
+                    <field name="price"/>
+                </group>
+            </form>
+        </field>
+    </record>
+<!--    <record id="order1_line_action" model="ir.actions.act_window">-->
+<!--    <field name="name">create order</field>-->
+<!--    <field name="res_model">sale1_order_wizard</field>-->
+<!--    <field name="view_mode">form</field>-->
+<!--    <field name="view_id" ref="order_line_form"/>-->
+<!--    <field name="target">new</field>-->
+<!--    </record>-->
+</odoo>
