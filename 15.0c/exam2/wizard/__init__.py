@@ -1,2 +1,2 @@
-from . import exam2_wizard
-from . import wizar_exam_f1
+from . import sale_order_line_wizard
+from . import sale_order_product_wizard

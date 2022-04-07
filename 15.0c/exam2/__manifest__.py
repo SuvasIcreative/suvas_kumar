@@ -20,9 +20,8 @@
 
     # always loaded
     'data': [
-        'wizard/exam2_wizard.xml',
-        'wizard/wizard_exam_f1.xml',
-        'views/exam2.xml',
+        'wizard/sale_order_line_wizard_view.xml',
+        'wizard/sale_order_product_wizard_view.xml',
         'views/res_config_set.xml',
         'views/res_partner.xml',
 

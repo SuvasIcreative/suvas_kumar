@@ -1,0 +1,15 @@
+<odoo>
+    <record id="views_sale_order_line_wizard" model="ir.ui.view">
+        <field name="name">sale order line wizard</field>
+        <field name="model">sale.order.line.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Parameters">
+                <group>
+                    <field name="product_id"/>
+                    <field name="product_quantity"/>
+                    <field name="price"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>

@@ -33,14 +33,14 @@
                         <div class="row mt16 o_settings_container">
 
                             <div class="o_setting_left_pane">
-                                <field name="current_month_sale_oder_id" />
+                                <field name="current_month_sale_oder_ids" />
                             </div>
 
-                            <div class="o_setting_right_pane">
-                                <label string="Sale data" for="current_month_sale_oder_id"/>
+<!--                            <div class="o_setting_right_pane">-->
+<!--                                <label string="Sale data" for="current_month_sale_oder_ids"/>-->
 <!--                                <div class="text-muted">-->
 <!--                                </div>-->
-                            </div>
+<!--                            </div>-->
 
                         </div>
                     </div>
