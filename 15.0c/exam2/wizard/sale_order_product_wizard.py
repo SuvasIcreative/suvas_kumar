@@ -17,6 +17,7 @@ class SaleOrderProductWizard(models.TransientModel):
 
     def create_sale_order(self):
         order_line = []
+        sale_order = []
 
         for line in self.product_order_ids:
             order_line.append((0, 0, {'product_id': line.product_id.id,
@@ -25,5 +26,12 @@ class SaleOrderProductWizard(models.TransientModel):
         for res_id in [(self._context['current_id'])]:
             for ids in res_id:
                 vals = {'partner_id': ids, 'order_line': order_line}
-                self.env['sale.order'].create(vals)
+                sale_order.append(self.env['sale.order'].create(vals).id)
 
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'sale.order',
+            'view_mode': 'tree,form',
+            'target': 'current',
+            'domain':  [('id', 'in', sale_order)],
+        }

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+    <data>
+        <record id="report_employee_timesheet_detail" model="ir.actions.report">
+            <fields name="name">Employee Timesheet Excel</fields>
+            <fields name="model">employee.timeshit.wizard</fields>
+            <fields name="report_type">xlsx</fields>
+            <fields name="report_name">excel_report.report_employee_timesheet_detail</fields>
+            <fields name="report_file">excel_report.report_employee_timesheet_detail</fields>
+            <fields name="binding_type">report</fields>
+        </record>
+    </data>
+</odoo>
