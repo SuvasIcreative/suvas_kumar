@@ -9,7 +9,7 @@
                 <form string="Parameters">
                     <sheet>
                         <group>
-                            <field name="employee_ids"/>
+                            <field name="employee_ids" widget="many2many_tags"/>
                             <field name="start_date"/>
                             <field name="end_date"/>
                         </group>

@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Excel Report",
+    'name': "Mail For Sale",
 
-    'summary': """Crete Excel Report of Employee Timeshit""",
+    'summary': """create this model for send mail from sale order""",
 
-    'description': """Create employee timeshit excel report """,
+    'description': """Create for send mail """,
 
     'author': "My Company",
     'website': "http://www.yourcompany.com",
@@ -16,12 +16,11 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'hr'],
+    'depends': ['base'],
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'wizard/employee_timesheet_wizard_view.xml',
+        'views/inherit_sale_order.xml'
     ],
     # 'application': True,
     # 'auto_install': False,
