@@ -45,6 +45,6 @@ class RentalManagement(models.Model):
 
     def action_send_email(self):
         print("++++++++++++++++++++++++++++++++++++++++++******&^^&&")
-        template_id=self.env.ref('rental_management.email_template_rental_management').id
-        template=self.env['mail.template'].browse(template_id)
-        template.send_mail(self.id,force_send=True)
+        template_id = self.env.ref('rental_management.email_template_rental_management').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)

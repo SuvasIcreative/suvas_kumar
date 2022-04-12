@@ -22,7 +22,7 @@
     'data': [
         'data/data.xml',
         'data/rec_partner_category_data.xml',
-        # 'data/mail_template.xml',
+        'data/mail_template.xml',
         'security/ir.model.access.csv',
         'wizard/wizard1.xml',
         'views/rental_template_web.xml',

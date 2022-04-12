@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Mail For Sale",
+    'name': "Pioneer Requirement",
 
-    'summary': """create this model for send mail from sale order""",
+    'summary': """Pioneer Requirement""",
 
-    'description': """Create for send mail """,
+    'description': """Pioneer Requirement""",
 
     'author': "My Company",
     'website': "http://www.yourcompany.com",
@@ -16,15 +16,16 @@
     'version': '1.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'sale'],
+    'depends': ['account'],
 
     # always loaded
     'data': [
-        # 'views/inherit_sale_order.xml',
-        'data/mail_template_data.xml',
+        'views/account_move_inherit_view.xml',
+
     ],
     # 'application': True,
     # 'auto_install': False,
+    # 'description': '',
     'installable': True,
     'post_load': None,
     'version': '1.0',
