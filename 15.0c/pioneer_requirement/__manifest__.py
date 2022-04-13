@@ -21,6 +21,7 @@
     # always loaded
     'data': [
         'views/account_move_inherit_view.xml',
+        'views/invoice_server_action_view.xml',
 
     ],
     # 'application': True,
