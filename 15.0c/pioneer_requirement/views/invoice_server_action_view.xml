@@ -4,7 +4,7 @@
         <field name="type">ir.actions.server</field>
         <field name="model_id" ref="model_account_move"/>
         <field name="binding_model_id" ref="model_account_move"/>
-        <field name="binding_view_types">tree,form</field>
+        <field name="binding_view_types">list,form</field>
         <field name="state">code</field>
         <field name="code">records.generate_subscription_bill()</field>
     </record>

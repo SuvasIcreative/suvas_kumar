@@ -10,7 +10,7 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     date_of_birth = fields.Date(string="Date Of Birth", required=False)
-    age = fields.Char(string="Age", compute="_set_age", store=True)
+    age = fields.Char(string="Age", store=True)
 
     @api.depends("date_of_birth")
     def _set_age(self):

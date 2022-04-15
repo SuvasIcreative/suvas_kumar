@@ -20,6 +20,7 @@
 
     # always loaded
     'data': [
+        'security/ir.model.access.csv',
         'wizard/sale_order_line_wizard_view.xml',
         'wizard/sale_order_product_wizard_view.xml',
         'views/res_config_set.xml',

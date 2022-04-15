@@ -6,10 +6,10 @@ from odoo import fields, models, api
 class AccountMoveLine(models.Model):
     _inherit = 'account.move.line'
 
+    vendor_id = fields.Many2one(comodel_name='res.partner', string='Vendor',
+                                domain="[('supplier_rank', '>', '0'), ('type', '=', 'contact')]")
     delivery_address_id = fields.Many2one(comodel_name='res.partner', string="Delivery Address",
-                                          domain=[('type', '=', 'delivery')])
-    vendor = fields.Many2one(comodel_name='res.partner', string='Vendor',
-                             domain=[('supplier_rank', '>', '0')])
+                                          domain="[('parent_id', '=', vendor_id), ('type', '=', 'delivery')]")
     vendor_price = fields.Float(string='Vendor Price')
     planned_gp = fields.Float(string='Planned GP%')
     description = fields.Char(string='Description',
