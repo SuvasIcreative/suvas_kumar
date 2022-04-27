@@ -1,0 +1,14 @@
+.update {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+}
+.for_table{
+  border: 1px solid black;
+  width:100%;
+
+}
+.first {
+    color: #999;
+}

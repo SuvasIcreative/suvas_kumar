@@ -26,6 +26,5 @@ class AccountMoveLine(models.Model):
         for record in self:
             if record.name and record.delivery_address_id:
                 record.description = "%s %s" % (record.delivery_address_id.name or ' ,', record.name)
-                # print("\n\n\n", record.description)
             else:
                 record.description = ''

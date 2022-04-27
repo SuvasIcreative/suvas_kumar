@@ -9,11 +9,11 @@ class ResPartner(models.Model):
     _inherit = 'res.partner'
 
     # customer_rank = fields.Integer(string="Customer Rank", required=False)
-
-    @api.constrains('customer_rank')
-    def _constrains_set_limit_rank(self):
-        if self.customer_rank not in range(1,11):
-            raise UserError('Give Rank out of 10')
+    #
+    # @api.constrains('customer_rank')
+    # def _constrains_set_limit_rank(self):
+    #     if self.customer_rank not in range(1,11):
+    #         raise UserError('Give Rank out of 10')
 
     # @api.onchange('partner_id')
     # def _onchange_customer_rank(self):

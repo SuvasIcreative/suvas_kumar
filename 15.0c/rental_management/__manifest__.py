@@ -22,7 +22,7 @@
     'data': [
         'data/data.xml',
         'data/rec_partner_category_data.xml',
-        'data/mail_template.xml',
+        # 'data/mail_template.xml',
         'security/ir.model.access.csv',
         'wizard/wizard1.xml',
         'views/rental_template_web.xml',
@@ -34,6 +34,9 @@
         'report/rental_management_action.xml',
         'views/res_partner.xml',
         'views/sale_order.xml',
+        'views/website_form.xml',
+        'views/res_partner_web_form.xml',
+        'views/update_partner_details_web_form.xml',
 
     ],
     'application': True,
@@ -44,6 +47,10 @@
     'version': '1.0',
     'web': False,
     'sequence': 10,
+    'assets': {
+             'web.assets_frontend': [
+                'rental_management/static/src/css/res_partner_form.css',
+                'rental_management/static/src/css/update_partner_details.css']},
     'license': 'LGPL-3',
 
 }

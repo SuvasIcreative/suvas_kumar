@@ -1,0 +1,26 @@
+.center {
+  display: inline;
+  margin-left: 80px;
+     width: 80%;
+
+}
+.display {
+  display: inline;
+  margin-left: 25px;
+   width: 80%;
+}
+.for_partner {
+  display: inline;
+  margin-left: 28px;
+     width: 80%;
+     }
+.for_city {
+  display: inline;
+  margin-left: 14px;
+     width: 80%;
+     }
+  .for_contry {
+  display: inline;
+  margin-left: 36px;
+     width: 80%;
+     }

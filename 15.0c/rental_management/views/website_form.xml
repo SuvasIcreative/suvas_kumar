@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="menu_creating_rental_form" model="website.menu">
+            <field name="name">Rental Form</field>
+            <field name="url">/rental_form</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">40</field>
+        </record>
+        <template id="online_appointment_form">
+            <t t-call="website.layout">
+                <div id="wrap" class="oe_structure oe_empty">
+                    <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                        <div class="container">
+                            <form action="/rental_form/submit/" method="post" enctype="multipart/form-data"
+                                  class="o_mark_required" data-mark="*" data-model_name="" data-success-page="">
+                                <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                <!--                                <div class="form-group">-->
+                                <div class="s_website_form_rows">
+                                    <div class="form-group"
+                                         data-type="char" data-name="Field">
+                                        <div class="row">
+                                            <label for="name"
+                                                   class="col-form-label col-sm-auto s_website_form_label">Name:
+                                            </label>
+                                            <div class="col-sm">
+                                                <input type="text" name="name" t-att-value="name" id="name"
+                                                       class="form-control" placeholder="Subu"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                         data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label for="email"
+                                                   class="col-form-label col-sm-auto s_website_form_label">email:
+                                            </label>
+                                            <div class="col-sm">
+                                                <input type="email" name="email" t-att-value="email" id="email"
+                                                       class="form-control" placeholder="email121@gamil.com"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                         data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label for="end_date"
+                                                   class="col-form-label col-sm-auto s_website_form_label">End Date:
+                                            </label>
+                                            <div class="col-sm">
+                                                <input type="date" name="end_date" t-att-value="end_date" id="end_date"
+                                                       class="form-control"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                         data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label for="end_date"
+                                                   class="col-form-label col-sm-auto s_website_form_label">Customer:
+                                            </label>
+                                            <div class="col-sm">
+                                                <select name="customer_id"
+                                                        t-attf-class="form-control s_website_form_input" required="1">
+                                                    <t t-foreach="partners" t-as="partner">
+                                                        <option t-att-value="partner.id">
+                                                            <t t-esc="partner.name"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="s_website_form_rows row s_col_no_bgcolor">
+                                    <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                         data-type="char" data-name="Field">
+                                        <div class="row s_col_no_resize s_col_no_bgcolor">
+                                            <label for="end_date"
+                                                   class="col-form-label col-sm-auto s_website_form_label">Rental
+                                                Product:
+                                            </label>
+                                            <div class="col-sm">
+                                                <select name="rental_product_id"
+                                                        t-attf-class="form-control s_website_form_input" required="1">
+                                                    <t t-foreach="products" t-as="product">
+                                                        <option t-att-value="product.id">
+                                                            <t t-esc="product.name"/>
+                                                        </option>
+                                                    </t>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">
+                                    <div style="width: 200px;" class="s_website_form_label"/>
+                                    <button type="submit" class="btn btn-primary">Create</button>
+                                </div>
+                                <!--                                                                <div class="s_website_form_rows row s_col_no_bgcolor">-->
+                                <!--                                                                    <div class="form-group col-12 s_website_form_field s_website_form_required"-->
+                                <!--                                                                         data-type="char" data-name="Field">-->
+                                <!--                                                                        <div class="row s_col_no_resize s_col_no_bgcolor">-->
+                                <!--                                            <label class="col-form-label col-sm-auto s_website_form_label"-->
+                                <!--                                                   style="width: 200px" for="studio1">-->
+                                <!--                                                <span class="s_website_form_label_content">Name</span>-->
+                                <!--&lt;!&ndash;                                                <span class="s_website_form_mark">*</span>&ndash;&gt;-->
+                                <!--                                            </label>-->
+                                <!--                                            <div class="col-sm">-->
+                                <!--                                                <input id="name" type="text" class="form-control s_website_form_input"-->
+                                <!--                                                       name="name" required="1"/>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="form-group col-12 s_website_form_field s_website_form_required"-->
+                                <!--                                         data-type="char" data-name="Field">-->
+                                <!--                                        <div class="row s_col_no_resize s_col_no_bgcolor">-->
+                                <!--                                            <label class="col-form-label col-sm-auto s_website_form_label"-->
+                                <!--                                                   style="width: 200px" for="studio1">-->
+                                <!--                                                <span class="s_website_form_label_content">Phone</span>-->
+                                <!--                                                <span class="s_website_form_mark">*</span>-->
+                                <!--                                            </label>-->
+                                <!--                                            <div class="col-sm">-->
+                                <!--                                                <input id="phone" type="text" class="form-control s_website_form_input"-->
+                                <!--                                                       name="phone" required="1"/>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="form-group col-12 s_website_form_field s_website_form_required"-->
+                                <!--                                         data-type="char" data-name="Field">-->
+                                <!--                                        <div class="row s_col_no_resize s_col_no_bgcolor">-->
+                                <!--                                            <label class="col-form-label col-sm-auto s_website_form_label"-->
+                                <!--                                                   style="width: 200px" for="studio1">-->
+                                <!--                                                <span class="s_website_form_label_content">Email</span>-->
+                                <!--                                                <span class="s_website_form_mark">*</span>-->
+                                <!--                                            </label>-->
+                                <!--                                            <div class="col-sm">-->
+                                <!--                                                <input id="email" type="email" class="form-control s_website_form_input"-->
+                                <!--                                                       name="email" required="1"/>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="form-group col-12 s_website_form_field s_website_form_required"-->
+                                <!--                                         data-type="char" data-name="Field">-->
+                                <!--                                        <div class="row s_col_no_resize s_col_no_bgcolor">-->
+                                <!--                                            <label class="col-form-label col-sm-auto s_website_form_label"-->
+                                <!--                                                   style="width: 200px" for="studio1">-->
+                                <!--                                                <span class="s_website_form_label_content">Partner</span>-->
+                                <!--                                                <span class="s_website_form_mark">*</span>-->
+                                <!--                                            </label>-->
+                                <!--                                            <div class="col-sm">-->
+                                <!--                                                <select name="partner_id"-->
+                                <!--                                                        t-attf-class="form-control s_website_form_input" required="1">-->
+                                <!--                                                    <t t-foreach="partners or []" t-as="partner">-->
+                                <!--                                                        <option t-att-value="partner.id">-->
+                                <!--                                                            <t t-esc="partner.name"/>-->
+                                <!--                                                        </option>-->
+                                <!--                                                    </t>-->
+                                <!--                                                </select>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                    <div class="form-group col-12 s_website_form_field s_website_form_required"-->
+                                <!--                                         data-type="char" data-name="Field">-->
+                                <!--                                        <div class="row s_col_no_resize s_col_no_bgcolor">-->
+                                <!--                                            <label class="col-form-label col-sm-auto s_website_form_label"-->
+                                <!--                                                   style="width: 200px" for="studio1">-->
+                                <!--                                                <span class="s_website_form_label_content">Date</span>-->
+                                <!--                                                <span class="s_website_form_mark">*</span>-->
+                                <!--                                            </label>-->
+                                <!--                                            <div class="col-sm">-->
+                                <!--                                                <input id="appointment_date" type="date"-->
+                                <!--                                                       class="form-control s_website_form_input" name="appointment_date"-->
+                                <!--                                                       required="1"/>-->
+                                <!--                                            </div>-->
+                                <!--                                        </div>-->
+                                <!--                                    </div>-->
+                                <!--                                                                    <div class="form-group col-12 s_website_form_submit" data-name="Submit Button">-->
+                                <!--                                                                        <div style="width: 200px;" class="s_website_form_label"/>-->
+                                <!--                                                                        <button type="submit" class="btn btn-primary">Submit</button>-->
+                                <!--                                                                    </div>-->
+                                <!--                                </div>-->
+                            </form>
+                        </div>
+                    </section>
+                </div>
+            </t>
+        </template>
+        <template id="tmp_customer_form_success" name="Customer Form Successfully Submitted">
+            <t t-call="website.layout">
+                <div id="wrap">
+                    <div class="container">
+                        <div class="col-md-12">
+                            <div class="alert alert-success">
+                                Customer created successfully.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+</odoo>
