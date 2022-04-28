@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="sale_order_inherit_report" inherit_id="sale.report_saleorder_document">
+        <xpath expr="//th[@class='text-left']" position="before">
+            <th name="th_image">Image</th>
+        </xpath>
+        <xpath expr="//td[@name='td_name']" position="before">
+            <td name="td_name">
+                <img t-if="line.product_id.image_1920"
+                     t-att-src="image_data_uri(line.product_id.image_1920)"
+                     style = "width: 20mm; height: 20mm;"
+                     class="float-left"
+                     alt="Logo"/>
+<!--               <img src='/sale.order/static/src/img/line.image_1920' t-options='{"widget": "image"}'/>-->
+            </td>
+        </xpath>
+    </template>
+</odoo>

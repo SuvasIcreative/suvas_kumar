@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <function name="write" model="ir.model.data">
+            <function name="search" model="ir.model.data">
+                <value eval="[('name', '=', ' mail_template_sale_confirmation '),
+        (' module ',' = ',' sale ')] "/>
+            </function>
+            <value eval=" {' noupdate ': False} "/>
+        </function>
+        <record id="sale.mail_template_sale_confirmation" model="mail.template">
+            <field name="subject">$ {object.company_id.name} $ {(object.get_portal_last_transaction (). state ==
+                'pending') and 'Pending Order' or 'Order'} (Ref $ {object.name or 'n / a'}) $ {object.date_order}
+            </field>
+        </record>
+    </data>
+</odoo>

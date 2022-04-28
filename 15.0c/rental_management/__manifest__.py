@@ -22,6 +22,7 @@
     'data': [
         'data/data.xml',
         'data/rec_partner_category_data.xml',
+        # 'data/sale_order_email_templat_inherite.xml',
         # 'data/mail_template.xml',
         'security/ir.model.access.csv',
         'wizard/wizard1.xml',
@@ -32,6 +33,7 @@
         'report/rental_paper_format.xml',
         'report/rental_management_template.xml',
         'report/rental_management_action.xml',
+        'report/sale_report_inherit.xml',
         'views/res_partner.xml',
         'views/sale_order.xml',
         'views/website_form.xml',

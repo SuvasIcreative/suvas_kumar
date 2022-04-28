@@ -12,8 +12,7 @@
                 <div class="container">
                     <div class="col-md-12">
                         <table class="for_table">
-                            <form action="/customer/details">
-                                <!--                            <form>-->
+                            <form action="/partner/details">
                                 <tr class="for_table">
                                     <td>
                                         <h2 class="update ">Partner Details:</h2>
@@ -21,25 +20,18 @@
                                 </tr>
                                 <tr>
                                     <td width="30%">
-
                                         <div class="update">
                                             <label for="name">Partner</label>
                                             <span style="color:#ff0000">*</span>
-                                            <!--                                    <input type="text"  name="partner" placeholder="Please select" id="partner" required="true"/>-->
-                                            <select name="partner_id">
+                                            <select name="partner_id" id="partner_id" class="form-control">
                                                 <t t-foreach="partners" t-as="das">
-                                                    <!--                                                    <option value="">Select your option</option>-->
-                                                    <option t-esc="das.name" t-att-placeholder="'Select'"
-                                                            t-att-value="das.id"/>
+                                                    <option t-esc="das.name" t-att-value="das.id" />
                                                 </t>
                                             </select>
                                         </div>
                                     </td>
                                     <td width="70%">
-                                        <!--                                        <a t-attf-href="/partner/{{ slug(das)}}">-->
-                                        <!--                                            <p>Hello</p></a>-->
                                         <button type="submit" class="btn btn-primary">Fetch Details</button>
-                                        <!--                                        </a>-->
                                     </td>
                                 </tr>
                             </form>
@@ -79,6 +71,7 @@
                                 </table>
                             </td>
                             <br></br>
+                            <input type="hidden" id="partner_id" name="partner_id" t-att-value="partners.id"/>
                             <td width="10%"></td>
                             <td width="40%">
                                 <table>
@@ -90,26 +83,31 @@
                                                    class="form-control display" placeholder="Edwin Hansen"/>
                                         </tr>
                                         <tr>
-                                            <label for="name" class="">Street:</label>
+                                            <label for="street2" class="">Street:</label>
                                             <input type="char" name="street2" t-att-value="partners.street2"
                                                    id="street2"
                                                    class="form-control display" placeholder="4557 De Silva St"/>
                                         </tr>
                                         <tr>
                                             <label for="name" class="">State:</label>
-                                            <input type="char" name="state_id" t-att-value="partners.state_id.name"
-                                                   id="state_id"
-                                                   class="form-control for_partner"/>
+<!--                                            <input type="char" name="state_id" t-att-value="partners.state_id.name"-->
+<!--                                                   id="state_id"-->
+<!--                                                   class="form-control for_partner"/>-->
+                                            <select name="state_id" id="state_id"  class="form-control for_partner">
+                                                <option t-esc="partners.state_id.name" t-att-value="partners.state_id.id" selected="1"/>
+                                                <t t-foreach="states" t-as="state">
+                                                    <option t-esc="state.name" t-att-value="state.id"/>
+                                                </t>
+                                            </select>
                                         </tr>
                                         <tr>
-                                            <label for="name" class="">Country:</label>
-                                            <input type="char" name="country_id" t-att-value="partners.country_id.name"
-                                                   id="country_id"
-                                                   class="form-control for_city"/>
-<!--                                            <t t-foreach="country" t-as="partners">-->
-<!--                                             <option t-att-value="partners.id"-->
-<!--                                                             t-esc="partners.country_id.name"/>-->
-<!--                                            </t>-->
+                                            <label for="country_id" class="">Country:</label>
+                                            <select name="country_id" id="country_id"  class="form-control for_city">
+                                                <option t-esc="partners.country_id.name" t-att-value="partners.country_id.id" selected="1"/>
+                                                <t t-foreach="countries" t-as="country">
+                                                    <option t-esc="country.name" t-att-value="country.id"/>
+                                                </t>
+                                            </select>
                                         </tr>
                                         <tr>
                                             <label for="name" class="">City:</label>
