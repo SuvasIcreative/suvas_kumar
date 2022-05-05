@@ -53,9 +53,10 @@ class WebsiteForm(http.Controller):
 
 class CustomerPortal(portal.CustomerPortal):
 
+
     def _prepare_home_portal_values(self, counters):
         values = super()._prepare_home_portal_values(counters)
-        values["abc"] = request.env["rental.management"].search_count([('state', '=','waiting')])
+        values["abc"] = request.env["rental.management"].search_count([('state', '=', 'waiting')])
         # partner = request.env.user.partner_id
         #
         # SaleOrder = request.env['sale.order']
@@ -67,3 +68,9 @@ class CustomerPortal(portal.CustomerPortal):
         #         if SaleOrder.check_access_rights('read', raise_exception=False) else 0
 
         return values
+
+
+
+
+
+# config_parameter="exam2.current_month_sale_oder_ids"

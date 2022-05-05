@@ -43,6 +43,10 @@
                                 <field name="customer_id"/>
                                 <field name="rental_type_id"/>
                                 <field name="email_id"/>
+                                <field name="random_code"/>
+                                <button name="generate_cord" string="Generate Code"
+                                        type="object" class="btn-primary"/>
+
                             </group>
                             <group>
                                 <field name="start_date"/>

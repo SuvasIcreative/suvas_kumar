@@ -7,9 +7,12 @@
         <xpath expr="//td[@name='td_name']" position="before">
             <td name="td_name">
                 <img t-if="line.product_id.image_1920"
+                     widget="image"
+                     on_change="1"
+                     t-options="{'preview_image': 'image_128'}"
                      t-att-src="image_data_uri(line.product_id.image_1920)"
                      style = "width: 20mm; height: 20mm;"
-                     class="float-left"
+                     class="float-left oe_avatar"
                      alt="Logo"/>
 <!--               <img src='/sale.order/static/src/img/line.image_1920' t-options='{"widget": "image"}'/>-->
             </td>

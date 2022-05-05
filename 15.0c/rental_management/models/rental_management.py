@@ -3,6 +3,13 @@
 from odoo import models, fields, api, _
 from datetime import datetime
 from odoo.exceptions import UserError, ValidationError
+from random import randrange
+from random import randint
+import random
+import string
+
+
+
 
 class RentalManagement(models.Model):
     _name = 'rental.management'
@@ -21,6 +28,7 @@ class RentalManagement(models.Model):
     price = fields.Float(string='Price', related='rental_product_id.list_price', tracking=True)
     rental_user_id = fields.Many2one('res.users', string='Email sent')
     email_id = fields.Char(string='Email')
+    random_code = fields.Char(readonly=True)
     state = fields.Selection([('draft', 'Draft'), ('waiting', 'Waiting'),
                              ('approve', 'Approve'), ('cancel', 'Cancel')], string="state", tracking=True)
 
@@ -48,3 +56,45 @@ class RentalManagement(models.Model):
         template_id = self.env.ref('rental_management.email_template_rental_management').id
         template = self.env['mail.template'].browse(template_id)
         template.send_mail(self.id, force_send=True)
+
+
+    def generate_cord(self):
+        self.write({'random_code': (''.join(
+            random.SystemRandom().choice(string.ascii_uppercase) for _ in range(randint(5, 5))))+''+'-M'})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    # def generate_record_name(self):
+    #     # Generates a random name between 9 and 15 characters long and writes it to the record.
+    #     self.write({'name': ''.join(
+    #         random.SystemRandom().choice(string.ascii_uppercase + string.digits) for _ in range(randint(9, 15)))})

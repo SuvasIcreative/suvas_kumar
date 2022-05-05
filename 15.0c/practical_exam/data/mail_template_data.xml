@@ -1,0 +1,71 @@
+<odoo>
+    <data>
+        <record id="email_template_contact_sale" model="mail.template">
+            <field name="name">Send Email : Contact by Salesperson</field>
+            <field name="model_id" ref="practical_exam.model_contact_sale"/>
+            <field name="email_from">{{ (object.partner_id.email_formatted) }}</field>
+            <field name="email_to">{{ object.salesperson_id.email}}</field>
+            <field name="subject">Send Contact Sale Done</field>
+            <field name="body_html" type="html">
+                <div style="margin: 10px;">
+                    <p style="margin: 5px; font-size: 13px;">
+                        Dear,
+                        <t t-if="object.partner_id.name">
+                            <t t-esc="object.partner_id.name"/>
+                        </t>
+                        <t t-if="object.partner_id.name">
+                            <t t-esc="object.name"/>
+                            <t t-esc="object.sale_order_id.name"/>
+                            <t t-esc="object.salesperson_id.name"/>
+                            <t t-esc="object.no_of_follow_upw"/>
+                        </t>
+                        <br/>
+                        <br/>
+                        Your Order is Confirm as per bellow details..
+                        <br/>
+                        <br/>
+
+                        <table class="table table-sm o_main_table">
+                            <tr>
+                                <th name="th_product" class="text-left">Create DAte</th>
+                                <th name="th_description" class="text-left">Create BY</th>
+                                <th name="th_unit" class="text-left">Odl State</th>
+                                <th name="th_price" class="text-left">New State</th>
+                                <th name="th_price" class="text-left">Old Follow UPS</th>
+                                <th name="th_price" class="text-left">New Follow UPS</th>
+                            </tr>
+
+                            <t t-foreach="object.contact_sale_history_lines_ids" t-as="history">
+                                <tr>
+                                    <td>
+                                        <span t-field="history.create_date"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="history.create_uid"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="history.old_state"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="history.new_state"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="history.old_n_of_follow_ups"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="history.new_n_of_follow_ups"/>
+                                    </td>
+
+                                </tr>
+                            </t>
+                        </table>
+                    </p>
+                    <p style="margin: 5px; font-size: 13px;" class="text-right">
+                        Thank you
+                    </p>
+                </div>
+            </field>
+            <field name="report_name">Send {{ (object.partner_id)}}</field>
+        </record>
+    </data>
+</odoo>
