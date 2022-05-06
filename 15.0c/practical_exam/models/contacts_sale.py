@@ -20,7 +20,7 @@ class ContactSale(models.Model):
     state = fields.Selection([('draft', 'Draft'), ('sent', 'In Progress'),
                               ('sale', 'Done'),
                               ('cancel', 'Cancel')],
-                             string='status', tracking=True)
+                             string='status', default='draft', tracking=True)
 
     ''' This function change the state of form by clicking on confirm button '''
     def action_sent(self):
@@ -41,6 +41,13 @@ class ContactSale(models.Model):
         self.write({
             'contact_sale_history_lines_ids': [(0, 0, values)]
         })
+
+    @api.model
+    def default_get(self, field_list):
+        partner_id = self.env['res.partner'].browse(self._context.get('active_id'))
+        res = super(ContactSale, self).default_get(field_list)
+        res['partner_id'] = partner_id.id
+        return res
 
     def action_draft(self):
         state_values = (dict(self._fields['state'].selection).get(self.state))
@@ -113,7 +120,8 @@ class ContactSale(models.Model):
 class ResPartnerInherit(models.Model):
     _inherit = 'res.partner'
 
-    contact_sale_count = fields.Integer(compute='_compute_contact_sale_count', invisible='1')
+    contact_sale_count = fields.Integer(compute='_compute_contact_sale_count', invisible=True)
+
 
     def _compute_contact_sale_count(self):
         contact_sale_count = self.env['contact.sale'].search_count([('partner_id', '=', self.ids)])
@@ -121,31 +129,35 @@ class ResPartnerInherit(models.Model):
 
     def action_open_available_contact_sale(self):
         if self.contact_sale_count == 1:
-            return {
-                'type': 'ir.actions.act_window',
-                'name': 'Contact Sale',
-                'res_model': 'contact.sale',
-                'view_mode': 'form',
-                'view_type': 'form',
-                'view_id': self.env.ref("practical_exam.contact_sale_view_form").id,
-                'domain': [('partner_id', '=', self.ids)],
-                'target': 'self',
-            }
+            context = dict(self.env.context)
+            rec = self.env['contact.sale'].search([('partner_id', '=', self.id)])
+            return {'type': 'ir.actions.act_window',
+                    'view_type': 'form',
+                    'view_mode': 'form',
+                    'res_model': 'contact.sale',
+                    'res_id': rec.id,
+                    'context': context,
+                    }
+
         if self.contact_sale_count > 1:
             return {
                 'type': 'ir.actions.act_window',
                 'name': 'Contact Sale',
                 'res_model': 'contact.sale',
-                'domain': [('partner_id', '=', self.ids)],
+                'domain': [('partner_id', '=', self.id)],
                 'view_mode': 'tree,form',
-                'target': 'current',
             }
-        if self.contact_sale_count < 1:
-            return {
-                'type': 'ir.actions.act_window',
-                'name': 'Contact Sale',
-                'res_model': 'contact.sale',
-                'domain': [('partner_id', '=', self.ids)],
-                'view_mode': 'form',
-                'target': 'current',
-            }
+        if self.contact_sale_count == 0:
+            context = dict(self.env.context)
+            rec = self.env['contact.sale'].search([('partner_id', '=', self.id)])
+            print('\n\n',rec,'\n\n\n')
+            rec.partner_id= self.name
+            return {'type': 'ir.actions.act_window',
+                    'view_type': 'form',
+                    'view_mode': 'form',
+                    'res_model': 'contact.sale',
+                    'partner_id': self.name,
+                    'res_id': rec.id,
+                    'context': context,
+                    }
+

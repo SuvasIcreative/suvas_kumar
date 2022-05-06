@@ -1,0 +1,61 @@
+<odoo>
+    <!--     tree view -->
+    <record id="promotional_discount_tree_view" model="ir.ui.view">
+        <field name="name">promotional discount tree view</field>
+        <field name="model">promotional.discount</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="discount_type"/>
+                <field name="discount"/>
+                <field name="minimum_order_amount"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="currency_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- form views -->
+    <record id="promotional_discount_form_view" model="ir.ui.view">
+        <field name="name">promotional discount form</field>
+        <field name="model">promotional.discount</field>
+        <field name="arch" type="xml">
+            <form string="Action">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="discount_type"/>
+                            <field name="name"/>
+                            <field name="discount" widget="monetary"/>
+                            <field name="discount" widget="monetary"
+                            attrs="{'invisible': [('discount_type','=','percentage')]}" />
+                            <field name="discount" attrs="{'invisible': [('discount_type','=','fixed_amount')]}"/>
+<!--                                   options="{'currency_field': 'company_currency'}"/>-->
+<!--                            <div class="oe_inline">-->
+<!--                                <field name="discount"/>-->
+<!--                                <span>%%</span>-->
+<!--                            </div>-->
+                            <field name="minimum_order_amount"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="currency_id"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--     action views -->
+    <record id="promotional_discount_action_window" model="ir.actions.act_window">
+        <field name="name">promotional discount action</field>
+        <field name="res_model">promotional.discount</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <!-- man manu -->
+    <menuitem id="promotional_discount_root_manu" name="Promotional Discount"/>
+    <!--     manus -->
+    <menuitem id="promotional_discount_manu" name="Discount"
+              parent="promotional_discount_root_manu"
+              action="promotional_discount_action_window"/>
+</odoo>

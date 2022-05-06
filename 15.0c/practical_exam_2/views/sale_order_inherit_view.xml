@@ -6,9 +6,14 @@
         <field name="arch" type="xml">
             <xpath expr="//button[@name='action_cancel']" position="after">
                 <button string="Apply Promotional Discount" name="action_apply_promotional_discount" type="object"
-                        class="oe_highlight" domain="[('promotional_discount','=','True')]"
-                        attrs="{'invisible': [ref('base.promotional_discount' ,'=', False)]}"/>
+                        class="oe_highlight" attrs="{'invisible': [('promotional_discount_check', '=', False)]}"/>
             </xpath>
+            <group name="sale_header" position="inside">
+                <group name="promotional_discount">
+                    <field name="promotional_discount_check" invisible='1'/>
+                </group>
+            </group>
+
         </field>
     </record>
 </odoo>

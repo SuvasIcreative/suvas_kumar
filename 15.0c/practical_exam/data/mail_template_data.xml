@@ -13,10 +13,16 @@
                         <t t-if="object.partner_id.name">
                             <t t-esc="object.partner_id.name"/>
                         </t>
+                        <br></br>
                         <t t-if="object.partner_id.name">
+
                             <t t-esc="object.name"/>
+                            <br></br>
                             <t t-esc="object.sale_order_id.name"/>
+                            <br></br>
                             <t t-esc="object.salesperson_id.name"/>
+                            <br></br>
+
                             <t t-esc="object.no_of_follow_upw"/>
                         </t>
                         <br/>

@@ -20,11 +20,12 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
+        'security/ir.model.access.csv',
         # 'data/data.xml',
         # 'data/mail_template_data.xml',
         'views/sale_config_setting_inherit_view.xml',
         'views/sale_order_inherit_view.xml',
+        'views/promotional_discount_view.xml',
 
     ],
     'application': True,
