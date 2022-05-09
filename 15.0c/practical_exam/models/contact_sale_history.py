@@ -1,11 +1,9 @@
-""" This model is create for student page """
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
 
 
 class ContactSaleHistory(models.Model):
-    """ This class is for student model this model is for student page"""
     _name = 'contact.sale.history'
     _description = 'create for contact sale one2many field'
 

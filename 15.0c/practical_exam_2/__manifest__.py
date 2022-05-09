@@ -21,7 +21,8 @@
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        # 'data/data.xml',
+        'security/sale_security_inherit.xml',
+        'data/product_category_data.xml',
         # 'data/mail_template_data.xml',
         'views/sale_config_setting_inherit_view.xml',
         'views/sale_order_inherit_view.xml',

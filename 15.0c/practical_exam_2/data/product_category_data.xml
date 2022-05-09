@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <record id="product_category_offers" model="product.product">
+            <field name="name">Promotion Discount</field>
+            <field name="sale_ok">True</field>
+            <field name="purchase_ok">True</field>
+            <field name="detailed_type">service</field>
+            <field name="taxes_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

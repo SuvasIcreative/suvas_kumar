@@ -1,18 +1,19 @@
-""" This model is create for student page """
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api, _
 
 
 class ContactSale(models.Model):
-    """ This class is for student model this model is for student page"""
     _name = 'contact.sale'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = 'contact sale'
 
     name = fields.Char(string='(Ir Sequence)', required=True, copy=False,
                        readonly=True, default=lambda self: _('New'))
-    partner_id = fields.Many2one(comodel_name='res.partner', string='Contact', required=True, tracking=True)
+    partner_id = fields.Many2one(comodel_name='res.partner', string='Contact',
+                                 default=lambda self: self._context['active_id']
+                                 if('active_id' in self._context.keys())
+                                 else False, required=True, tracking=True)
     sale_order_id = fields.Many2one(comodel_name='sale.order', string="Sale Order", tracking=True)
     salesperson_id = fields.Many2one(comodel_name='res.users', related='sale_order_id.user_id', tracking=True)
     no_of_follow_upw = fields.Integer(string='Follow UPS', readonly=True)
@@ -22,12 +23,12 @@ class ContactSale(models.Model):
                               ('cancel', 'Cancel')],
                              string='status', default='draft', tracking=True)
 
-    ''' This function change the state of form by clicking on confirm button '''
-    def action_sent(self):
+
+    def create_contact_sale_history(self, value):
         state_values = (dict(self._fields['state'].selection).get(self.state))
         old_status = state_values
         old_follow = self.no_of_follow_upw
-        self.write({'state': 'sent'})
+        self.write({'state': value})
         self.no_of_follow_upw += 1
         state_values = (dict(self._fields['state'].selection).get(self.state))
         new_status = state_values
@@ -41,6 +42,23 @@ class ContactSale(models.Model):
         self.write({
             'contact_sale_history_lines_ids': [(0, 0, values)]
         })
+        print('\n\n\nHello ji','\n\n')
+
+    ''' This function change the state of form by clicking on confirm button '''
+    def action_sent(self):
+        self.create_contact_sale_history('sent')
+
+    def action_draft(self):
+        self.create_contact_sale_history('draft')
+
+    def action_sale(self):
+        self.create_contact_sale_history('sale')
+        template_id = self.env.ref('practical_exam.email_template_contact_sale').id
+        template = self.env['mail.template'].browse(template_id)
+        template.send_mail(self.id, force_send=True)
+
+    def action_cancel(self):
+        self.create_contact_sale_history('cancel')
 
     @api.model
     def default_get(self, field_list):
@@ -48,66 +66,6 @@ class ContactSale(models.Model):
         res = super(ContactSale, self).default_get(field_list)
         res['partner_id'] = partner_id.id
         return res
-
-    def action_draft(self):
-        state_values = (dict(self._fields['state'].selection).get(self.state))
-        old_follow = self.no_of_follow_upw
-        old_status = state_values
-        self.write({'state': 'draft'})
-        self.no_of_follow_upw += 1
-        state_values = (dict(self._fields['state'].selection).get(self.state))
-        new_status = state_values
-        new_follow = self.no_of_follow_upw
-        values = {
-            'old_n_of_follow_ups': old_follow,
-            'new_n_of_follow_ups': new_follow,
-            'old_state': old_status,
-            'new_state': new_status,
-        }
-        self.write({
-            'contact_sale_history_lines_ids': [(0, 0, values)]
-        })
-
-    def action_sale(self):
-        state_values = (dict(self._fields['state'].selection).get(self.state))
-        old_follow = self.no_of_follow_upw
-        old_status = state_values
-        self.write({'state': 'sale'})
-        self.no_of_follow_upw += 1
-        state_values = (dict(self._fields['state'].selection).get(self.state))
-        new_status = state_values
-        new_follow = self.no_of_follow_upw
-        values = {
-            'old_n_of_follow_ups': old_follow,
-            'new_n_of_follow_ups': new_follow,
-            'old_state': old_status,
-            'new_state': new_status,
-        }
-        self.write({
-            'contact_sale_history_lines_ids': [(0, 0, values)]
-        })
-        template_id = self.env.ref('practical_exam.email_template_contact_sale').id
-        template = self.env['mail.template'].browse(template_id)
-        template.send_mail(self.id, force_send=True)
-
-    def action_cancel(self):
-        state_values = (dict(self._fields['state'].selection).get(self.state))
-        old_follow = self.no_of_follow_upw
-        old_status = state_values
-        self.write({'state': 'cancel'})
-        self.no_of_follow_upw += 1
-        state_values = (dict(self._fields['state'].selection).get(self.state))
-        new_status = state_values
-        new_follow = self.no_of_follow_upw
-        values = {
-            'old_n_of_follow_ups': old_follow,
-            'new_n_of_follow_ups': new_follow,
-            'old_state': old_status,
-            'new_state': new_status,
-        }
-        self.write({
-            'contact_sale_history_lines_ids': [(0, 0, values)]
-        })
 
     @api.model
     def create(self, values):
@@ -150,8 +108,8 @@ class ResPartnerInherit(models.Model):
         if self.contact_sale_count == 0:
             context = dict(self.env.context)
             rec = self.env['contact.sale'].search([('partner_id', '=', self.id)])
-            print('\n\n',rec,'\n\n\n')
-            rec.partner_id= self.name
+            print('\n\n', rec, '\n\n\n')
+            rec.partner_id = self.name
             return {'type': 'ir.actions.act_window',
                     'view_type': 'form',
                     'view_mode': 'form',
@@ -160,4 +118,6 @@ class ResPartnerInherit(models.Model):
                     'res_id': rec.id,
                     'context': context,
                     }
+
+
 
