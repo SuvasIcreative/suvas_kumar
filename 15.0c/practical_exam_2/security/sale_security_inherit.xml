@@ -4,4 +4,10 @@
         <field name="name">Promotion Discount button Sales Orders</field>
         <field name="category_id" ref="base.module_category_hidden"/>
     </record>
+<!--     <record id="group_promotion_discount_button_rule" model="ir.rule">-->
+<!--        <field name="name">Promotion Discount button Show</field>-->
+<!--        <field name="model_id" ref="model_res_config_settings"/>-->
+<!--        <field name="domain_force">[('promotional_discount','=',True)]</field>-->
+<!--         <field name="groups" eval="[(4, ref('practical_exam_2.group_promotion_discount_button'))]"/>-->
+<!--    </record>-->
 </odoo>
