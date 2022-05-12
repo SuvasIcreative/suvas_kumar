@@ -9,7 +9,8 @@
                         name="action_apply_promotional_discount"
                         type="object"
                         class="oe_highlight"
-                        attrs="{'invisible': [('promotional_discount_check', '=', False)]}"/>
+                        groups="practical_exam_2.group_promotion_discount_button"/>
+<!--                        attrs="{'invisible': [('promotional_discount_check', '=', False)]}"/>-->
             </xpath>
             <group name="sale_header" position="inside">
                 <group name="promotional_discount">

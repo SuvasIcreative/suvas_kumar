@@ -42,7 +42,6 @@ class ContactSale(models.Model):
         self.write({
             'contact_sale_history_lines_ids': [(0, 0, values)]
         })
-        print('\n\n\nHello ji','\n\n')
 
     ''' This function change the state of form by clicking on confirm button '''
     def action_sent(self):
@@ -108,7 +107,6 @@ class ResPartnerInherit(models.Model):
         if self.contact_sale_count == 0:
             context = dict(self.env.context)
             rec = self.env['contact.sale'].search([('partner_id', '=', self.id)])
-            print('\n\n', rec, '\n\n\n')
             rec.partner_id = self.name
             return {'type': 'ir.actions.act_window',
                     'view_type': 'form',

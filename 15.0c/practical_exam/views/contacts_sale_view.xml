@@ -5,11 +5,16 @@
         <field name="name">contact Sale tree</field>
         <field name="model">contact.sale</field>
         <field name="arch" type="xml">
-            <tree default_order="id desc" decoration-info="state=='draft'" decoration-muted="state == 'sent'"
-                  decoration-danger="state == 'cancel'" decoration-success="state == 'sale'">
+            <tree default_order="id desc"
+                  decoration-info="state=='draft'"
+                  decoration-muted="state == 'sent'"
+                  decoration-danger="state == 'cancel'"
+                  decoration-success="state == 'sale'">
+                <!--                  editable="top">-->
+                <button name="confirm" string="Confirm" class="oe_highlight"/>
                 <field name="partner_id"/>
                 <field name="sale_order_id"/>
-                <field name="no_of_follow_upw" />
+                <field name="no_of_follow_upw"/>
                 <field name="salesperson_id" widget="many2one_avatar" options="{'color_field':'color'}"/>
                 <field name="state" widget="badge" decoration-warning="state == 'draft'" decoration-info="state=='sent'"
                        decoration-success="state == 'sale'" decoration-danger="state == 'cancel'"/>
@@ -24,13 +29,17 @@
         <field name="arch" type="xml">
             <form string="Action">
                 <header>
-                    <button id='button_draft' string="Draft" name="action_draft" attrs="{'invisible': [('state', '=', 'draft')]}"
+                    <button id='button_draft' string="Draft" name="action_draft"
+                            attrs="{'invisible': [('state', '=', 'draft')]}"
                             class="btn-primary" type="object"/>
-                    <button id='button_sent' string="In Progress" name="action_sent" attrs="{'invisible': [('state', '=', 'sent')]}"
+                    <button id='button_sent' string="In Progress" name="action_sent"
+                            attrs="{'invisible': [('state', '=', 'sent')]}"
                             class="btn-primary" confirm="Your form going to In Progress" type="object"/>
-                    <button id='button_sale' string="Done" name="action_sale" attrs="{'invisible': [('state', '=', 'sale')]}"
+                    <button id='button_sale' string="Done" name="action_sale"
+                            attrs="{'invisible': [('state', '=', 'sale')]}"
                             class="btn-primary" type="object"/>
-                    <button id='button_cancel' string="Cancel" name="action_cancel" attrs="{'invisible': [('state', '=', 'cancel')]}"
+                    <button id='button_cancel' string="Cancel" name="action_cancel"
+                            attrs="{'invisible': [('state', '=', 'cancel')]}"
                             confirm="Are u want to cancel your form" type="object"/>
                     <field name="state" widget="statusbar"
                            statusbar_visible="draft,sent,sale"/>
@@ -57,8 +66,10 @@
                         <page string="History Lines" name="contact_sale_history">
                             <group>
                                 <field name="contact_sale_history_lines_ids">
-                                    <tree editable="bottom">
-                                        <field name="create_date"/>
+                                    <tree editable="bottom"
+                                          default_order="id desc">
+                                        <field name="create_date" style="color:blue;"/>
+<!--                                        <field name="create_date" style="background-color:blue;"/>-->
                                         <field name="create_uid"/>
                                         <field name="old_state"/>
                                         <field name="new_state"/>
@@ -78,7 +89,7 @@
             </form>
         </field>
     </record>
-<!--    search views-->
+    <!--    search views-->
     <record id="contact_sale_search" model="ir.ui.view">
         <field name="name">contact Sale</field>
         <field name="model">contact.sale</field>
@@ -94,7 +105,7 @@
                     <filter string="Status" name="state" context="{'group_by':'state'}"/>
                     <filter string="Contact" name="partner_id" context="{'group_by':'partner_id'}"/>
                     <filter string="Sale Order" name="sale_order" context="{'group_by':'sale_order_id'}"/>
-                    <filter string="Salesperson" name="salesperson" context="{'group_by':'salesperson_id'}"/>
+                    <!--                    <filter string="Salesperson" name="salesperson" context="{'group_by':'salesperson_id'}"/>-->
                 </group>
             </search>
         </field>
