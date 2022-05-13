@@ -1,0 +1,30 @@
+<odoo>
+    <data>
+        <record id="sale_order_form_modify" model="ir.ui.view">
+            <field name="name">sale order form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='sale_shipping']" position="replace">
+                    <group name="sale_delivery" string="Delivery">
+                        <field name="expect_time_slot"/>
+                        <field name="customer_comment"/>
+                        <label for="commitment_date" string="Delivery Date"/>
+                        <div name="commitment_date_div" class="o_row">
+                            <field name="commitment_date"/>
+                            <span name="expected_date_span" class="text-muted">Expected:
+                                <field name="expected_date" widget="date"/>
+                            </span>
+                        </div>
+                    </group>
+                </xpath>
+
+                <!--                <xpath expr="*//label[@for='commitment_date']" position="before">-->
+                <!--                    <field name="expect_time_slot"/>-->
+                <!--                    <field name="customer_comment"/>-->
+                <!--                    <field name="commitment_date"/>-->
+                <!--                </xpath>-->
+            </field>
+        </record>
+    </data>
+</odoo>

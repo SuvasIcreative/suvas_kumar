@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!--        form view-->
+        <record id="delivery_time_slots_view_form" model="ir.ui.view">
+            <field name="name">Delivery Time</field>
+            <field name="model">delivery.time.slots</field>
+            <field name="arch" type="xml">
+                <form string="Tags">
+                    <header>
+                        <field name="state" widget="statusbar" options="{'clickable': '1'}"
+                               statusbar_colors='{"cancel":"red","active":"blue"}'/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <field name="slot_name"/>
+                            <field name="time_slot" widget="radio"/>
+                            <field name="comments"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--tree view-->
+        <record id="delivery_time_slots_view_tree" model="ir.ui.view">
+            <field name="name">Delivery Time Slots</field>
+            <field name="model">delivery.time.slots</field>
+            <field name="arch" type="xml">
+                <tree string="Tags">
+                    <field name="slot_name"/>
+                    <field name="time_slot"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+        <!--        search view-->
+
+        <!--        <record id="delivery_time_slots_view_search" model="ir.ui.view">-->
+        <!--            <field name="name">delivery.time.slots.view.search</field>-->
+        <!--            <field name="model">delivery.time.slots</field>-->
+        <!--            <field name="arch" type="xml">-->
+        <!--                <search>-->
+        <!--                    <field name="name"/>-->
+        <!--                    <separator/>-->
+        <!--                    <filter name="archived" string="Archived" domain="[('active', '=', False)]"/>-->
+        <!--                </search>-->
+        <!--            </field>-->
+        <!--        </record>-->
+        <!--action -->
+        <record id="delivery_time_slots_view_manu_action" model="ir.actions.act_window">
+            <field name="name">Delivery Time Slots Action</field>
+            <field name="res_model">delivery.time.slots</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+        <!--  manu-->
+        <menuitem id="delivery_time_slots_man_manu"
+                  name="Delivery Slots"
+                  parent="sale.menu_sale_config"
+                  sequence="6"/>
+        <menuitem id="delivery_time_slots_manu"
+                  name="Time Slots"
+                  parent="delivery_time_slots_man_manu"
+                  action="delivery_time_slots_view_manu_action" />
+
+
+    </data>
+</odoo>

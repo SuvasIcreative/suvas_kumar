@@ -1,0 +1,27 @@
+<odoo>
+    <data>
+        <template id="shop_payment_modify" inherit_id="website_sale.payment" customize_show="True">
+            <xpath expr="//div[@id='payment_method']" position="before">
+                <div>
+                    <label for="name">Preferred Delivery Date:</label>
+                    <input type="date" name="preferred_date" id="preferred_date" class="form-control"/>
+                </div>
+                <div>
+                    <label for="name">Preferred Delivery Time:</label><br></br>
+                    <input type="radio" id="preferred_time" name="preferred_time"/>
+                    <label for="preferred_time">9AM-12PM</label>
+                    <input type="radio" id="preferred_time1" name="preferred_time1"/>
+                    <label for="preferred_time1">12PM-4PM</label>
+                    <input type="radio" id="preferred_time2" name="preferred_time2"/>
+                    <label for="preferred_time2">4PM-7PM</label>
+                    <input type="radio" id="preferred_time3" name="preferred_time3"/>
+                    <label for="preferred_time3">7PM-10PM</label>
+                </div>
+                <div>
+                    <label for="name">Comment For Delivery:</label>
+                    <input type="html" name="comment" id="comment" class="form-control"/>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>

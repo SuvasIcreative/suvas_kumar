@@ -11,7 +11,7 @@
                   decoration-danger="state == 'cancel'"
                   decoration-success="state == 'sale'">
                 <!--                  editable="top">-->
-                <button name="confirm" string="Confirm" class="oe_highlight"/>
+                <!--                <button name="confirm" string="Confirm" class="oe_highlight"/>-->
                 <field name="partner_id"/>
                 <field name="sale_order_id"/>
                 <field name="no_of_follow_upw"/>
@@ -69,7 +69,7 @@
                                     <tree editable="bottom"
                                           default_order="id desc">
                                         <field name="create_date" style="color:blue;"/>
-<!--                                        <field name="create_date" style="background-color:blue;"/>-->
+                                        <!--                                        <field name="create_date" style="background-color:blue;"/>-->
                                         <field name="create_uid"/>
                                         <field name="old_state"/>
                                         <field name="new_state"/>
