@@ -1,0 +1,30 @@
+odoo.define('website_customer_order_delivery.payment', function(require) {
+    "use strict";
+
+    var ajax = require('web.ajax');
+
+    $(document).ready(function() {
+        try {
+            $("#delivery_date").datepicker({
+                minDate: new Date()
+            });
+        } catch (e) {}
+
+        $("#delivery_date_icon").click(function(){
+            $('#delivery_date').datepicker('show');
+        });
+
+        $('button[name="o_payment_submit_button"]').bind("click", function(ev) {
+
+            var customer_delivery_date = $('#delivery_date').val();
+            var customer_delivery_time = $('#delivery_time').val();
+            var customer_delivery_comment = $('#delivery_comment').val();
+            ajax.jsonRpc('/shop/customer_order_delivery', 'call', {
+                'delivery_date': customer_delivery_date,
+                'delivery_time': customer_delivery_time,
+                'delivery_comment': customer_delivery_comment
+            });
+        });
+    });
+
+});

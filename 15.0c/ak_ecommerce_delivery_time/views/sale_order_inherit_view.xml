@@ -18,12 +18,6 @@
                         </div>
                     </group>
                 </xpath>
-
-                <!--                <xpath expr="*//label[@for='commitment_date']" position="before">-->
-                <!--                    <field name="expect_time_slot"/>-->
-                <!--                    <field name="customer_comment"/>-->
-                <!--                    <field name="commitment_date"/>-->
-                <!--                </xpath>-->
             </field>
         </record>
     </data>

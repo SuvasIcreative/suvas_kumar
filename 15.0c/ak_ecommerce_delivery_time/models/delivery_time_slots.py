@@ -3,6 +3,7 @@ from odoo import api, fields, models
 
 
 class DeliveryTimeSlots(models.Model):
+    """ Ablevel Delivery time slot """
     _name = "delivery.time.slots"
     _description = "Mange Delivery Time Slots"
     _rec_name = 'slot_name'
@@ -13,7 +14,7 @@ class DeliveryTimeSlots(models.Model):
                                   ('sec_time_slot', '12PM-4PM'),
                                   ('third_time_slot', '4PM-7PM'),
                                   ('four_time_slot', '7PM-10PM')])
-    state = fields.Selection([('active', 'Active'), ('cancel', 'Cancel')])
+    state = fields.Selection([('active', 'Active'), ('cancel', 'Cancel')], default='active')
     comments = fields.Html()
 
     @api.onchange('time_slot')
@@ -26,5 +27,3 @@ class DeliveryTimeSlots(models.Model):
             self.slot_name = 'evening'
         if self.time_slot == 'four_time_slot':
             self.slot_name = 'night'
-
-

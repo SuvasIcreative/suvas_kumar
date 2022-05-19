@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <template id="stock_picking_inherit_report" inherit_id="stock.report_picking">
+            <xpath expr="//div[@name='div_sched_date']" position="after">
+                <div class="col-auto" name="div_sched_date">
+                    <strong>Preferred Time:</strong>
+                    <p t-field="o.expect_time_slot"/>
+                </div>
+            </xpath>
+            <xpath expr="//p[@t-field='o.note']" position="before">
+                    <h2><strong>Delivery Note:</strong></h2>
+            </xpath>
+        </template>
+    </data>
+</odoo>
